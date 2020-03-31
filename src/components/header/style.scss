@@ -1,0 +1,119 @@
+.App {
+    nav{
+      background: none;
+      box-shadow: none;
+    }
+}
+  
+.App-header {
+    display: flex;
+    flex-wrap: wrap;
+
+    .logoWrapper{
+        border: 1px solid $borderColor;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: $transition03;
+    
+        &:hover{
+            background: #fff;
+            color: $hover_colorOnWhiteBG;
+        }
+    
+        .logo{
+            display: flex;
+            padding: 20px 40px;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #E6EAEA;
+            font-size: 3rem;
+            font-weight: 900;
+        }
+    }
+
+    .navigation{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .externalNavigation_wrapper{
+            width: 15%;
+            border: 1px solid $borderColor;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .externalNavigation_button{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                
+                a{
+                    font-size: 25px;
+                }
+                .burger{
+                    width: 50px;
+                    margin-left: 10px;
+                    div{
+                        width: 100%;
+                        border-bottom: 2px solid $borderColor;
+                        padding-top: 10px;
+
+                        &:first-child{
+                            padding-top: 7px;
+                        }
+                    }
+                }
+            }
+
+            .externalNavigation{
+                display: none;
+            }
+        }
+
+        .internalNavigationWrapper{
+            width:85%;
+            border: 1px solid $borderColor;
+            
+            nav{
+                color: #202121;
+                height: auto;
+                
+                ul{
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+            
+                    li{
+                        width: 33.3%;
+                        text-align: center;
+                        border: 1px solid $borderColor;
+                        border-left: none;
+                       
+                        &:nth-child(-n+3){
+                            border-top:none;
+                        }
+            
+                        &:nth-child(n+4){
+                            border-top:none;
+                            border-bottom: nones;
+                        }
+                         a{
+                            color: $mainColor;
+                            transition: $transition03;
+            
+                            &:hover{
+                                background: #fff;
+                                color: $hover_colorOnWhiteBG;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+  

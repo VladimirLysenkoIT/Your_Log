@@ -1,0 +1,61 @@
+
+{   
+    "parts":{
+        "caloriesPart": {
+            "internalPagesList":[
+                {
+                    "title":"Account",
+                    "link": "account"
+                },
+                {
+                    "title":"Home",
+                    "link": "home"
+                },
+                {
+                    "title":"Log out",
+                    "link": "logout"
+                },
+                {
+                    "title":"Statistics",
+                    "link": "statistics"
+                },
+                {
+                    "title":"Add a food",
+                    "link": "addfood"
+                },
+                {
+                    "title":"Knowledge base",
+                    "link": "knowledgebase"
+                }
+            ]
+        }, "Finances":{
+            
+        },  "Todo":{
+
+        }
+    },"sharedData":{
+        "externalMenu":
+        [
+            {
+                "title":"Finances",
+                "link": "finances"
+            },
+            {
+                "title":"Todo",
+                "link": "todo"
+            },
+            {
+                "title":"Nutrition",
+                "link": "nutrition"
+            },
+            {
+                "title":"Trainings",
+                "link": "trainings"
+            },
+            {
+                "title":"All statistics",
+                "link": "allStats"
+            }
+        ]
+    }
+}
