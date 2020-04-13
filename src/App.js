@@ -1,12 +1,11 @@
 import React from 'react';
-import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
-
 import DB from './assets/DB.json';
 
-import {DBContext} from './Services/context/DBContext';
+import { DBContext } from './Services/context/DBContext';
 
-import {Home} from './scenes/home/index';
+// import { Home } from './scenes/home/index';
+import { Account } from './scenes/account';
 
 import './App.scss';
 
@@ -14,14 +13,9 @@ function App() {
   return (
     <DBContext.Provider value={{DB}}>
       <div className="App">
-        <Home />
+        <Account />
 
         <main>
-          <nav className="externalNavigation">
-
-          </nav>
-          <div className="generalNavigation"></div>
-          <div className="mainContent"></div>
         </main>
 
 

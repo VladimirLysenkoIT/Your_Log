@@ -13,7 +13,7 @@ export const InternalNavigation = () =>{
                     {pages.map((page, index)=>{
                         return(
                         <li key={index}>
-                            <a href="">{page.title}</a>
+                            <a href="/">{page.title}</a>
                         </li>
                         ) 
                     })}

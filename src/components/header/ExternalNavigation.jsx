@@ -8,7 +8,7 @@ export const ExternalNavigation = () =>{
     return(
         <div className="externalNavigation_wrapper">
             <div className="externalNavigation_button">
-                <a href="#">Menu</a>
+                <a href="/">Menu</a>
                 <div className="burger">
                     <div></div>
                     <div></div>
@@ -20,7 +20,7 @@ export const ExternalNavigation = () =>{
                     {pages.map((page, index)=>{
                         return(
                         <li key={index}>
-                            <a href="">{page.title}</a>
+                            <a href="/">{page.title}</a>
                         </li>
                         ) 
                     })}
