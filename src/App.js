@@ -1,52 +1,41 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  useRouteMatch
+} from "react-router-dom";
 import 'materialize-css/dist/css/materialize.min.css';
-import DB from './assets/DB.json';
 
-import { DBContext } from './Services/context/DBContext';
-
-// import { Home } from './scenes/home/index';
-import { Account } from './scenes/account';
+import { Health } from './applications/health';
+import { Finances } from './applications/finances';
+import { Tasks } from './applications/tasks';
 
 import './App.scss';
 
 function App() {
+  let { path, url } = useRouteMatch();
+
   return (
-    <DBContext.Provider value={{DB}}>
-      <div className="App">
-        <Account />
+  <Switch>
+    <Route exact path="/">
 
-        <main>
-        </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* <header className="App-header"> */}
-          {/* <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a> */}
-        {/* </header> */}
-
-      </div>
-    </DBContext.Provider>
+      <Health />
+    </Route>
+    <Route path="/health">
+        <Health />
+    </Route>
+    <Route path="/finances">
+      <Finances />
+    </Route>
+    <Route path="/todo">
+      <Tasks />
+    </Route>
+    <Route path="/trainings">
+      <Redirect to="/todo" />
+    </Route>
+  </Switch>
   );
 }
 
