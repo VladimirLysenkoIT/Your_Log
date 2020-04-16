@@ -3,6 +3,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 export const InternalNavigation = ({Pages}) =>{
     let { path, url } = useRouteMatch();
+    
     return(
         <div className="internalNavigationWrapper">
                 <nav className="internalNavigation">

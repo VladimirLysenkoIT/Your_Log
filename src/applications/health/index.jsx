@@ -12,17 +12,18 @@ export const Health = ()=> {
   let { path, url } = useRouteMatch();
   return (
     <DBContext.Provider value={{DB}}>
+      <Home />
        <Switch>
         <Route exact path={`${path}`}>
           <div className="App">
-            <Home />
           </div>
         </Route>
         <Route path={`${path}/:internalNaviagtionPage`}>
-          <Account />
-          {/* <MyRouter /> */}
+         
+          <MyRouter />
         </Route>
       </Switch>
+      
     </DBContext.Provider>
   );
 }

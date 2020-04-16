@@ -10,9 +10,11 @@ import { Header } from './components/header';
 
 export const MyRouter = ()=> {
   let { internalNaviagtionPage } = useParams();
+  console.log(11111111111111111111111111111111111111111111111111);
+  
   return (
     <div>
-      <Home />
+      
       <h1>{`Hello its ${internalNaviagtionPage}`}</h1>
     </div>
   );
