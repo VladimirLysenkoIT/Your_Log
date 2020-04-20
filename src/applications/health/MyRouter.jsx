@@ -1,21 +1,30 @@
-import React from 'react';
-import {useParams} from 'react-router-dom'
-import DB from './assets/DB.json';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import { DBContext } from './Services/context/DBContext';
+import { Home } from "./scenes/home/index";
+import { Account } from "./scenes/account";
+import { AddFood } from "./scenes/AddFood";
 
-import { Home } from './scenes/home/index';
-import { Account } from './scenes/account';
-import { Header } from './components/header';
-
-export const MyRouter = ()=> {
-  let { internalNaviagtionPage } = useParams();
-  console.log(11111111111111111111111111111111111111111111111111);
-  
+export const MyRouter = () => {
   return (
     <div>
-      
-      <h1>{`Hello its ${internalNaviagtionPage}`}</h1>
+      <Switch>
+        <Route exact path="/health/home">
+          <Home />
+        </Route>
+        <Route path="/health/account">
+          <Account />
+        </Route>
+        <Route path="/health/statistics">
+          <span>Statistics</span>
+        </Route>
+        <Route path="/health/addfood">
+          <AddFood />
+        </Route>
+        <Route path="/health/knowledgebase">
+          <span>Knowledge base</span>
+        </Route>
+      </Switch>
     </div>
   );
-}
+};
