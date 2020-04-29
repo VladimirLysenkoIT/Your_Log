@@ -1,14 +1,19 @@
-import React from 'react';
-import {Header} from '../../components/header/index';
-import { BodyContentBox } from '../../components/bodyContentBox';
+import React from "react";
+import { BodyContentBox } from "../../components/bodyContentBox";
+
+import "./style.scss";
 
 export const Home = () => {
-    return (
-        <div className="">
-            <Header />
-            <BodyContentBox customClass={'home'}>
-                <h1>Hello it's homepage</h1>
-            </BodyContentBox>
-        </div>
-    );
-}
+  return (
+    <div className="">
+      <BodyContentBox customClass={"home"}>
+
+        <div className="dateSwitcher">date switcher</div>
+        <div className="caloriesAndNUtrients"></div>
+        <div className="caloriesDisplayer">caloriesDisplayer</div>
+        .nutrientsStats
+        <h1>Hello it's homepage</h1>
+      </BodyContentBox>
+    </div>
+  );
+};
