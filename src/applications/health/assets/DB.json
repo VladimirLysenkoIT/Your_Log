@@ -1,61 +1,322 @@
-
-{   
-    "parts":{
-        "caloriesPart": {
-            "internalPagesList":[
-                {
-                    "title":"Account",
-                    "link": "account"
-                },
-                {
-                    "title":"Home",
-                    "link": "home"
-                },
-                {
-                    "title":"Log out",
-                    "link": "logout"
-                },
-                {
-                    "title":"Statistics",
-                    "link": "statistics"
-                },
-                {
-                    "title":"Add a food",
-                    "link": "addfood"
-                },
-                {
-                    "title":"Knowledge base",
-                    "link": "knowledgebase"
-                }
-            ]
-        }, "Finances":{
-            
-        },  "Todo":{
-
+{
+  "parts": {
+    "caloriesPart": {
+      "internalPagesList": [
+        {
+          "title": "Account",
+          "link": "account"
+        },
+        {
+          "title": "Home",
+          "link": "home"
+        },
+        {
+          "title": "Log out",
+          "link": "logout"
+        },
+        {
+          "title": "Statistics",
+          "link": "statistics"
+        },
+        {
+          "title": "Add a food",
+          "link": "addfood"
+        },
+        {
+          "title": "Knowledge base",
+          "link": "knowledgebase"
         }
-    },"sharedData":{
-        "externalMenu":
-        [
-            {
-                "title":"Finances",
-                "link": "finances"
+      ],
+      "products": [
+        {
+          "id": "1",
+          "name": "Banana",
+          "type": "fruit",
+          "category": "carbs",
+          "nutritionFacts": {
+            "calories": "89",
+            "lipides": {
+              "total": "0.3",
+              "saturated": "0.1",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
             },
-            {
-                "title":"Todo",
-                "link": "todo"
+            "cholesterol": "0",
+            "sodium": "1",
+            "potassium": "358",
+            "carbs": {
+              "total": "23",
+              "fibres": "2.6",
+              "sucres": "12"
             },
-            {
-                "title":"Health",
-                "link": "health"
+            "proteines": "1.1",
+            "vitamin_A": "64",
+            "calcium": "5",
+            "vitamin_C": "8.7",
+            "fer": "0.3",
+            "vitamin_B6": "0.4",
+            "magnesium": "27"
+          }
+        },
+        {
+          "id": "2",
+          "name": "Apple",
+          "type": "fruit",
+          "nutritionFacts": {
+            "calories": "52",
+            "lipides": {
+              "total": "0.2",
+              "saturated": "0.0",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
             },
-            {
-                "title":"Trainings",
-                "link": "trainings"
+            "cholesterol": "0",
+            "sodium": "1",
+            "potassium": "107",
+            "carbs": {
+              "total": "14",
+              "fibres": "2.3",
+              "sucres": "10"
             },
-            {
-                "title":"All statistics",
-                "link": "allStats"
-            }
-        ]
-    }
+            "proteines": "0.3",
+            "vitamin_A": "54",
+            "calcium": "6",
+            "vitamin_C": "4.6",
+            "fer": "0.1",
+            "vitamin_B6": "0",
+            "magnesium": "5"
+          }
+        },
+        {
+          "id": "3",
+          "name": "Pomegranate",
+          "type": "fruit",
+          "nutritionFacts": {
+            "calories": "83",
+            "lipides": {
+              "total": "1.2",
+              "saturated": "0.1",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
+            },
+            "cholesterol": "0",
+            "sodium": "3",
+            "potassium": "236",
+            "carbs": {
+              "total": "19",
+              "fibres": "4",
+              "sucres": "14"
+            },
+            "proteines": "1.7",
+            "vitamin_A": "0",
+            "calcium": "10",
+            "vitamin_C": "10.2",
+            "fer": "0.3",
+            "vitamin_B6": "0",
+            "magnesium": "15"
+          }
+        },
+        {
+          "id": "4",
+          "name": "Pomegranate2",
+          "type": "fruit",
+          "nutritionFacts": {
+            "calories": "83",
+            "lipides": {
+              "total": "1.2",
+              "saturated": "0.1",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
+            },
+            "cholesterol": "0",
+            "sodium": "3",
+            "potassium": "236",
+            "carbs": {
+              "total": "19",
+              "fibres": "4",
+              "sucres": "14"
+            },
+            "proteines": "1.7",
+            "vitamin_A": "0",
+            "calcium": "10",
+            "vitamin_C": "10.2",
+            "fer": "0.3",
+            "vitamin_B6": "0",
+            "magnesium": "15"
+          }
+        },
+        {
+          "id": "5",
+          "name": "Pomegranate3",
+          "type": "fruit",
+          "nutritionFacts": {
+            "calories": "83",
+            "lipides": {
+              "total": "1.2",
+              "saturated": "0.1",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
+            },
+            "cholesterol": "0",
+            "sodium": "3",
+            "potassium": "236",
+            "carbs": {
+              "total": "19",
+              "fibres": "4",
+              "sucres": "14"
+            },
+            "proteines": "1.7",
+            "vitamin_A": "0",
+            "calcium": "10",
+            "vitamin_C": "10.2",
+            "fer": "0.3",
+            "vitamin_B6": "0",
+            "magnesium": "15"
+          }
+        },
+        {
+          "id": "6",
+          "name": "Pomegranate3",
+          "type": "fruit",
+          "nutritionFacts": {
+            "calories": "83",
+            "lipides": {
+              "total": "1.2",
+              "saturated": "0.1",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
+            },
+            "cholesterol": "0",
+            "sodium": "3",
+            "potassium": "236",
+            "carbs": {
+              "total": "19",
+              "fibres": "4",
+              "sucres": "14"
+            },
+            "proteines": "1.7",
+            "vitamin_A": "0",
+            "calcium": "10",
+            "vitamin_C": "10.2",
+            "fer": "0.3",
+            "vitamin_B6": "0",
+            "magnesium": "15"
+          }
+        },
+        {
+          "id": "7",
+          "name": "Pomegranate4",
+          "type": "fruit",
+          "nutritionFacts": {
+            "calories": "83",
+            "lipides": {
+              "total": "1.2",
+              "saturated": "0.1",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
+            },
+            "cholesterol": "0",
+            "sodium": "3",
+            "potassium": "236",
+            "carbs": {
+              "total": "19",
+              "fibres": "4",
+              "sucres": "14"
+            },
+            "proteines": "1.7",
+            "vitamin_A": "0",
+            "calcium": "10",
+            "vitamin_C": "10.2",
+            "fer": "0.3",
+            "vitamin_B6": "0",
+            "magnesium": "15"
+          }
+        },
+        {
+          "id": "8",
+          "name": "Pomegranate5",
+          "type": "fruit",
+          "nutritionFacts": {
+            "calories": "83",
+            "lipides": {
+              "total": "1.2",
+              "saturated": "0.1",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
+            },
+            "cholesterol": "0",
+            "sodium": "3",
+            "potassium": "236",
+            "carbs": {
+              "total": "19",
+              "fibres": "4",
+              "sucres": "14"
+            },
+            "proteines": "1.7",
+            "vitamin_A": "0",
+            "calcium": "10",
+            "vitamin_C": "10.2",
+            "fer": "0.3",
+            "vitamin_B6": "0",
+            "magnesium": "15"
+          }
+        },
+        {
+          "id": "9",
+          "name": "Pomegranate6",
+          "type": "fruit",
+          "nutritionFacts": {
+            "calories": "83",
+            "lipides": {
+              "total": "1.2",
+              "saturated": "0.1",
+              "monounsaturated": "0.1",
+              "polyunsaturated": "0.1"
+            },
+            "cholesterol": "0",
+            "sodium": "3",
+            "potassium": "236",
+            "carbs": {
+              "total": "19",
+              "fibres": "4",
+              "sucres": "14"
+            },
+            "proteines": "1.7",
+            "vitamin_A": "0",
+            "calcium": "10",
+            "vitamin_C": "10.2",
+            "fer": "0.3",
+            "vitamin_B6": "0",
+            "magnesium": "15"
+          }
+        }
+      ]
+    },
+    "Finances": {},
+    "Todo": {}
+  },
+  "sharedData": {
+    "externalMenu": [
+      {
+        "title": "Finances",
+        "link": "finances"
+      },
+      {
+        "title": "Todo",
+        "link": "todo"
+      },
+      {
+        "title": "Health",
+        "link": "health"
+      },
+      {
+        "title": "Trainings",
+        "link": "trainings"
+      },
+      {
+        "title": "All statistics",
+        "link": "allStats"
+      }
+    ]
+  }
 }

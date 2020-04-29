@@ -1,6 +1,5 @@
 import React from "react";
 import { BodyContentBox } from "../../components/bodyContentBox";
-
 import "./style.scss";
 
 export const Home = () => {
@@ -11,7 +10,7 @@ export const Home = () => {
         <div className="dateSwitcher">date switcher</div>
         <div className="caloriesAndNUtrients"></div>
         <div className="caloriesDisplayer">caloriesDisplayer</div>
-        .nutrientsStats
+        <div className="nutrientsStats">nutrientsStats</div>
         <h1>Hello it's homepage</h1>
       </BodyContentBox>
     </div>
