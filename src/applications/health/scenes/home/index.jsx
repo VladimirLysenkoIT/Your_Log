@@ -8,9 +8,12 @@ export const Home = () => {
       <BodyContentBox customClass={"home"}>
 
         <div className="dateSwitcher">date switcher</div>
-        <div className="caloriesAndNUtrients"></div>
-        <div className="caloriesDisplayer">caloriesDisplayer</div>
-        <div className="nutrientsStats">nutrientsStats</div>
+        <div className="nutritionData_hook">nutritionData</div>
+        <div className="addBreakfast_hook">addBreakfast</div>
+        <div className="addEmotions_hook">emotiions</div>
+        <div className="addWater_hook">AddWater</div>
+        <div className="addCoffee_hook">AddCofee</div>
+        <div className="addSlipTime_hook"></div>
         <h1>Hello it's homepage</h1>
       </BodyContentBox>
     </div>
