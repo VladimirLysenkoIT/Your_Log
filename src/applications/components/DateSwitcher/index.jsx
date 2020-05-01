@@ -1,21 +1,79 @@
 import React from "react";
+import M from 'materialize-css';
+
 import "./style.scss";
 
 export const DateSwitcher = ({dataSetter}) => {
+    const  monthsArray = [];
+    monthsArray[0] = "January";
+    monthsArray[1] = "February";
+    monthsArray[2] = "March";
+    monthsArray[3] = "April";
+    monthsArray[4] = "May";
+    monthsArray[5] = "June";
+    monthsArray[6] = "July";
+    monthsArray[7] = "August";
+    monthsArray[8] = "September";
+    monthsArray[9] = "October";
+    monthsArray[10] = "November";
+    monthsArray[11] = "December"; 
+
+    const [textDate, setTextDate] = React.useState();
+    const [selectedDate, setSelectedDate] = React.useState();
     React.useEffect(()=>{
-        initAgeDatePicker();  
-        initTrainingsNumberSelector();
+        initDatePicker();
+        initDateSwitcherData();
     }, [])
 
-    const initAgeDatePicker = async ()=>{
-        const datePicker = document.getElementById('datePickerAge');
+    const refreshSwitcherTextDate = (date) => {
+        const switcherDate = dateToText(date);
+       
+        setTextDate(switcherDate)
+    }
+
+    const dateToText = (date) => {
+        let dateToFormat = date;
+        let formattedDate = dateToFormat.getDate() + '.' + monthsArray[dateToFormat.getMonth()];
+        
+        return formattedDate;
+    }
+
+    const initDateSwitcherData = () => {
+        let currentTime = new Date();
+
+        refreshSwitcherTextDate(currentTime);
+        setSelectedDate(currentTime);
+    }
+
+    const getMaximallDate = ()=>{
+        let currentTime = new Date();
+        currentTime.setDate(currentTime.getDate() + 2)
+        
+        return currentTime;
+    }
+
+    const forwardDate = ()=>{
+        let date = selectedDate;
+        date.setDate(date.getDate() + 1)
+        
+        setSelectedDate(date)
+    }
+
+    const backDate = ()=>{
+        let date = selectedDate;
+
+        date.setDate(date.getDate() - 1)
+        
+        setSelectedDate(date)
+    }
+
+    const initDatePicker = async ()=>{
+        const datePicker = document.getElementById('datePicker');
         
         M.Datepicker.init(datePicker, {
-            format: 'dd mmmm yyyy ',
-            yearRange: yearsRange(),
-            minDate: getMinimalDate(),
+            format: 'd.mmmm',
+            defaultDate: new Date(),
             maxDate: getMaximallDate(),
-            defaultDate: getMaximallDate(),
             onSelect: (newDate) => {
                 onChangeHandler({
                     target: {
@@ -28,28 +86,18 @@ export const DateSwitcher = ({dataSetter}) => {
     }
 
     const onChangeHandler = (e)=>{
-        let newUserDataFormValues = {...userDataFormValues};
+        let newTextDate = {...textDate};
         let fieldValue = e.target.value
         const fieldName = e.target.name;
-
-        if(fieldName === 'age'){
-            const birthDateInTwoForms = convertDate(fieldValue);
-            const timestamp = birthDateInTwoForms['ageTimestamp'];
-            const textDate = birthDateInTwoForms['ageTextDate'];
-            newUserDataFormValues['ageTimestamp'] = timestamp;
-            newUserDataFormValues['ageTextDate'] = textDate;
-            newUserDataFormValues['age'] = getAge(timestamp, textDate);
-            
-        }else{
-            newUserDataFormValues[fieldName] = fieldValue;
-        }
         
-        setUserDataFormValues(newUserDataFormValues)
+        setTextDate(newTextDate)
     }
   return (
     <div className="dateSwitcher">
         <form action="">
-            <input type='text' name='age' value={userDataFormValues.ageTextDate} onChange={onChangeHandler} className='datepicker' id='datePickerAge'/>
+            <button onClick="forwardDate()" className="back" type="button"><i className="material-icons">navigate_before</i></button>
+                <input type='text' className="display" name='date' value={textDate} onChange={onChangeHandler} id='datePicker'/>
+            <button onClick="backDate()" className="forward" type="button"><i className="material-icons">navigate_next</i></button>
         </form>
     </div>
   );

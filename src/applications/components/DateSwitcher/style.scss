@@ -1,0 +1,26 @@
+.dateSwitcher{
+
+    form{
+        display: flex;
+        justify-content: center;
+
+        button{
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            &.back:active{
+                transform: translateX(-1px);
+            }
+            &.forward:active{
+                transform: translateX(1px);
+            }
+        }
+
+        input.display{
+            text-align: center;
+            border-bottom: none;
+            width: 180px;
+        }
+    }
+}

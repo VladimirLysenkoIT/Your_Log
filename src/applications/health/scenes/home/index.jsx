@@ -1,13 +1,16 @@
 import React from "react";
 import { BodyContentBox } from "../../components/bodyContentBox";
 import "./style.scss";
+import { DateSwitcher } from "../../../components/DateSwitcher";
 
 export const Home = () => {
   return (
     <div className="">
       <BodyContentBox customClass={"home"}>
 
-        <div className="dateSwitcher">date switcher</div>
+        <div className="dateSwitcher">
+          <DateSwitcher />
+        </div>
         <div className="nutritionData_hook">nutritionData</div>
         <div className="addBreakfast_hook">addBreakfast</div>
         <div className="addEmotions_hook">emotiions</div>
