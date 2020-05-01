@@ -15,6 +15,14 @@
             &.forward:active{
                 transform: translateX(1px);
             }
+
+            &.disabled{
+                color: #E6EAEA;
+
+                &.forward:active{
+                    transform: translateX(0px);
+                }
+            }
         }
 
         input.display{
