@@ -1,0 +1,100 @@
+$proteinColor: rgb(24, 153, 46);
+$carbsColor: rgb(0, 60, 139);
+$fatColor: rgb(49, 1, 17);
+$airColor: #3ed6d6;
+
+.nutrientsDisplayer {
+    margin-top: 20px;
+
+    .graph{
+        display: flex;
+        width: 100%;
+
+        &>div .color{
+            height: 12px;
+        }
+
+        &>div .pourcentage{
+            margin-top: 5px;
+        }
+
+        .protein{
+
+            .color{
+                background: $proteinColor;
+                width: 100%;
+            }
+            
+        }
+
+        .carbs{
+            .color{
+                background: $carbsColor;
+                width: 100%;
+            }
+        }
+
+        .fat{
+
+            .color{
+            background: $fatColor;
+            width: 100%;
+            }
+        }
+
+        .air{
+            width: 100%;
+            
+            .color{
+            background: $airColor;
+            width: 100%;
+            }
+        }
+    }
+
+    .graphDescription{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &>div{
+            &::before{
+                content: "";
+                display: block;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                float: left;
+                width: 10px;
+                height: 10px;
+                border-radius: 100%;
+                margin-right: 5px;
+                
+            }
+        }
+
+        &>div.protein{
+            &::before{
+                background: $proteinColor;
+            }
+        }
+
+        &>div.carbs{
+            &::before{
+                background: $carbsColor
+            }
+        }
+
+        &>div.fat{
+            &::before{
+                background: $fatColor;
+            }
+        }
+
+        &>div.air{
+            &::before{
+                background: $airColor;
+            }
+        }
+    }
+}
