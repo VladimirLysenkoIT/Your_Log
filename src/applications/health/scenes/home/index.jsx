@@ -3,6 +3,7 @@ import { BodyContentBox } from "../../components/bodyContentBox";
 import "./style.scss";
 import { DateSwitcher } from "../../../components/DateSwitcher";
 import { NutritionData } from "./components/nutritionData";
+import { BreakfastButtons } from "../../components/BreakfastButtons";
 
 export const Home = () => {
   return (
@@ -15,7 +16,9 @@ export const Home = () => {
           <div className="nutritionData_wrapper">
             <NutritionData />
           </div>
-          <div className="addBreakfast_hook">addBreakfast</div>
+          <div className="breakFastButtons_wrapper">
+            <BreakfastButtons />
+          </div>
           <div className="addEmotions_hook">emotiions</div>
           <div className="addWater_hook">AddWater</div>
           <div className="addCoffee_hook">AddCofee</div>
