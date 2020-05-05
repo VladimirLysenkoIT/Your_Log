@@ -7,6 +7,7 @@ import "./style.scss";
 import { DBContext } from "../../Services/context/DBContext";
 import { ProductsDetail } from "./ProductsDetail";
 import { ProductsList } from "./ProductList";
+import { AddFoodRouter } from "./AddFoodRouter";
 
 export const AddFood = () => {
   const [currentProduct, setCurrentProduct] = React.useState();
@@ -18,13 +19,14 @@ export const AddFood = () => {
     <BodyContentBox customClass={"ProductListAndProductDetail"}>
       <div className="row">
         <div className="col s12 l6">
-          <ProductsDetail currentProduct={currentProduct} />
+          <AddFoodRouter />
+          {/* <ProductsDetail currentProduct={currentProduct} /> */}
         </div>
         <div className="col s12 l6">
-          <ProductsList
+          {/* <ProductsList
             products={products}
             setCurrentProduct={setCurrentProduct}
-          />
+          /> */}
         </div>
       </div>
     </BodyContentBox>
