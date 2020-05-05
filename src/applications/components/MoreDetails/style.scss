@@ -1,0 +1,24 @@
+.moreDetailsButtonBlock{
+    text-align: center;
+    padding: 10px 5px 15px;
+
+    a.moreDetailsButton{
+        color: #1f3e4c;
+        transition: all 0.3;
+
+        &:hover{
+            color: #4b6773;
+
+            i{
+                color: #4b6773;
+            }
+        }
+        
+        i{
+            position: relative;
+            top: 7px;
+            left: 7px;
+            color: #1f3e4c;
+        }
+    }
+}

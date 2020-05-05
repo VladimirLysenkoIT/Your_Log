@@ -1,0 +1,31 @@
+.breakfastButtons{
+    margin-top: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    a{
+        display: flex;
+        flex-direction: column;
+        width: 29%;
+        align-items: center;
+        font-size: 1.4em;
+        color: #464646;
+        font-family: monospace;
+        margin-top: 30px;
+
+        i{
+            font-size: 2em;
+        }
+
+        i.moveLeft{
+            transform: translateX(-25%)
+        }
+
+        span{
+            padding-top: 10px;
+            text-align: center;
+        }
+    }
+}
