@@ -37,7 +37,6 @@ export const ProductsList = ({ products, setCurrentProduct }) => {
           </div>
         )}
       </ul>
-      <span>Salutje suis un product list</span>
     </div>
   );
 };

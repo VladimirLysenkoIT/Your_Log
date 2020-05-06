@@ -18,9 +18,13 @@ export const MyRouter = () => {
         <Route path="/health/statistics">
           <span>Statistics</span>
         </Route>
-        <Route path="/health/addfood">
+        <Route exact path="/health/addfood">
           <AddFood />
         </Route>
+        <Route path="/health/addfood/:eattime" >
+          <AddFood />
+        </Route>
+
         <Route path="/health/knowledgebase">
           <span>Knowledge base</span>
         </Route>

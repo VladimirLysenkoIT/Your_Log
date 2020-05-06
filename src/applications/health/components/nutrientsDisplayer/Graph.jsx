@@ -1,9 +1,8 @@
 import React from "react";
 import "./style.scss";
 
-export const Graph = () => {
-
-
+export const Graph = ({ calories,protein,carbs,fat }) => {
+  
   const getProteinPourcentage = () =>{
     const CALORIES_IN_PROTEIN = 4;
     const caloriesFromProtein = protein * CALORIES_IN_PROTEIN;
