@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-export const GraphDescription = () => {
+export const GraphDescription = ({ calories,protein,carbs,fat }) => {
 
   const getAirCalories = () =>{
     const sum = protein * 4 + carbs * 4 + fat * 9;

@@ -1,11 +1,17 @@
 import React from "react";
+import M from 'materialize-css';
+import { WeightRange } from "./WeightRange";
 
 export const ProductsDetail = ({ currentProduct }) => {
   return (
     <div className="productDetail">
       {currentProduct ? (
         <div className="details">
-          <p>{`Titre: ${currentProduct.name}`}</p>
+          <div className="header">
+            <h3>{`${currentProduct.name}`}</h3>
+            <WeightRange />
+          </div>
+          
           <p>{`Type: ${currentProduct.type}`}</p>
           <p>{`Calories: ${currentProduct.nutritionFacts.calories}`}</p>
           <p>{`Lipides totales: ${
