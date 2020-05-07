@@ -41,10 +41,35 @@
       display: flex;
       justify-content: center;
 
-      input{
-        text-align: center;
-        width: 120px;
-      }
+      form{
+        display: flex;
+        justify-content: center;
+
+        button{
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          &.back:active{
+              transform: translateX(-1px);
+          }
+          &.forward:active{
+              transform: translateX(1px);
+          }
+
+          &.disabled{
+              color: #E6EAEA;
+
+              &.forward:active{
+                  transform: translateX(0px);
+              }
+          }
+        }
+        input{
+          text-align: center;
+          width: 120px;
+        }
+    }
     }
   }
   
