@@ -11,10 +11,25 @@ export const ProductsDetail = ({ currentProduct }) => {
         <div className="details">
           <div className="header">
             <h3>{`${currentProduct.name}`}</h3>
+            <div className="typeAndCategory">
+              <div className="partTitle">
+                <span className="title">Category: </span>
+                <span className="amount">Healthy</span>
+              </div>
+              <span className="devisor">|</span>
+              <div className="partTitle">
+                <span className="title">Type: </span>
+                <span className="amount">{currentProduct.type} </span>
+              </div>
+            </div>
             <WeightRange setWeightCoefficient={setWeightCoefficient} />
           </div>
           <div className="productProperties">
-            <p>{`Type: ${currentProduct.type}`}</p>
+            {/* <p>{`Type: ${currentProduct.type}`}</p>
+            <p>{`Category: Healthy`}</p> */}
+              <h5>{`Nutrition facts:`}</h5>
+            
+
             <div className="part caloriePart">
               <div className="partTitle">
                 <span className="title">Calories:</span>

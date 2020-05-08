@@ -18,6 +18,7 @@ export const ProductsList = ({ products, setCurrentProduct }) => {
 
   return (
     <div className="productListWrapper">
+      <h3>Choisissez un produit</h3>
       <ul className="productList">
         {products ? (
           products.map((product, index) => {
