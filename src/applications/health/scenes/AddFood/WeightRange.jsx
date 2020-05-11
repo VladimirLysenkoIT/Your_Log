@@ -24,32 +24,6 @@ export const WeightRange = ({ setWeightCoefficient }) => {
     
     setWeight(newWeight)
   }
-  let isButtonDown = false;
-  let incrementWeightInterwal;
-
-  const addWeight = () => {
-    const newWeight = (weight * 1 ) + 1;
-    setWeight(newWeight)
-  }
-
-  const minusWeight = () => {
-    const newWeight = (weight * 1 ) - 1;
-    setWeight(newWeight)
-  }
-
-  const onMouseUpHandler = () => {
-    clearInterval(incrementWeightInterwal)
-  }
-
-  const onMouseDownHandler = () => {
-    console.log(1);
-    setTimeout(function(){ 
-      alert(12);
-      incrementWeightInterwal = setInterval(function(){ console.log(1) }, 2000);
-    }, 1000);
-  }
-
-  
 
   const minusWeight = () => {
     let newWeight = weight*1 - 1;
@@ -78,9 +52,10 @@ export const WeightRange = ({ setWeightCoefficient }) => {
 
   return (
     <div className="weightRange">
+        <div className="title">Quantité: </div>
         <form action="">
           <button onClick={minusWeight} onMouseDown={longMinusPressHandler} onMouseUp={buttonUpHandler} className="back" type="button"><i className="material-icons">navigate_before</i></button>
-            <input type='text' name='fat' value={weight + 'gr'} onChange={textFieldOnChangeHandler} />
+            <input type='text' name='fat' value={weight + ' gr'} onChange={textFieldOnChangeHandler} />
           <button onClick={addWeight} onMouseDown={longAddPressHandler} onMouseUp={buttonUpHandler} className={`forward`} type="button"><i className="material-icons">navigate_next</i></button>
         </form>
     </div>
