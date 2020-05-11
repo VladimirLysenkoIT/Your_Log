@@ -52,9 +52,10 @@ export const WeightRange = ({ setWeightCoefficient }) => {
 
   return (
     <div className="weightRange">
+        <div className="title">Quantité: </div>
         <form action="">
           <button onClick={minusWeight} onMouseDown={longMinusPressHandler} onMouseUp={buttonUpHandler} className="back" type="button"><i className="material-icons">navigate_before</i></button>
-            <input type='text' name='fat' value={weight + 'gr'} onChange={textFieldOnChangeHandler} />
+            <input type='text' name='fat' value={weight + ' gr'} onChange={textFieldOnChangeHandler} />
           <button onClick={addWeight} onMouseDown={longAddPressHandler} onMouseUp={buttonUpHandler} className={`forward`} type="button"><i className="material-icons">navigate_next</i></button>
         </form>
     </div>
