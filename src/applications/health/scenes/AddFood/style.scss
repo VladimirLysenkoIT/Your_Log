@@ -52,45 +52,8 @@
       }
 
       .weightRange{
-        display: flex;
-        align-items: center;
-          
-        .title{
-          font-family: monospace;
-          font-size: 18px;
-        }
-
         form{
-          display: flex;
-          justify-content: center;
-          margin: 0px auto;
           transform: translateX(-45px);
-  
-          button{
-              background: none;
-              border: none;
-              cursor: pointer;
-  
-              &.back:active{
-                  transform: translateX(-1px);
-              }
-              &.forward:active{
-                  transform: translateX(1px);
-              }
-  
-              &.disabled{
-                  color: #E6EAEA;
-  
-                  &.forward:active{
-                      transform: translateX(0px);
-                  }
-              }
-          }
-  
-          input{
-            text-align: center;
-            width: 120px;
-          }
         }
       }
     }
@@ -143,7 +106,9 @@
         margin-bottom: 1px;
         text-align: center;
         font-family: monospace;*/
-
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         cursor: pointer;
         list-style-type: none;
         padding: 10px 20px;
@@ -153,8 +118,85 @@
         margin-bottom: 1px;
         font-family: monospace;
         padding-left: 80px;
+
+        .listingLineDescription{
+
+        }
+
+       .weightRange{
+
+        .title{
+          display: none;
+        }
+       }
+
+        .listingLineButtons{
+          
+          .addGrouppButton{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .weightRange{
+              padding-right: 20px;
+            }
+          }
+
+          .withoutCaloriesButton{
+            display: flex;
+            justify-content: center;
+          }
+          
+        }
       }
     }
+  }
+  
+  .weightRange{
+    display: flex;
+    align-items: center;
+      
+    .title{
+      font-family: monospace;
+      font-size: 18px;
+    }
+
+    form{
+      display: flex;
+      justify-content: center;
+      margin: 0px auto;
+      
+
+      button{
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          &.back:active{
+              transform: translateX(-1px);
+          }
+          &.forward:active{
+              transform: translateX(1px);
+          }
+
+          &.disabled{
+              color: #E6EAEA;
+
+              &.forward:active{
+                  transform: translateX(0px);
+              }
+          }
+      }
+
+      input{
+        text-align: center;
+        width: 120px;
+      }
+    }
+  }
+
+  .newProductLinkWrapper{
+    padding-top: 20px;
   }
 }
 

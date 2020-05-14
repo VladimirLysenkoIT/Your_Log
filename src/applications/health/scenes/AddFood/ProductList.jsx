@@ -1,11 +1,12 @@
 import React from "react";
+import { WeightRange } from "./Components/WeightRange";
+import { WithoutCaloriesCheckbox } from "./Components/WithoutCalloriesCheckbox";
 
-export const ProductsList = ({ products, setCurrentProduct }) => {
-  const onClickHandlerProductList = event => {
-    const id = event.target.dataset.prodid;
-    console.log(id);
-
-    getProductById(id);
+export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient }) => {
+  const [isWithCallories, setIsWithCallories] = React.useState(false);
+  const onClickHandlerProductList = e => {
+      const id = e.currentTarget.dataset.prodid;
+      getProductById(id);
   };
 
   const getProductById = id => {
@@ -16,9 +17,19 @@ export const ProductsList = ({ products, setCurrentProduct }) => {
     setCurrentProduct(currentProduct);
   };
 
+  const onClickHandlerAddProduct = e => {
+    console.log('clicked');
+    
+  };
+  console.log(isWithCallories);
+  
   return (
     <div className="productListWrapper">
       <h3>Choisissez un produit</h3>
+      <WithoutCaloriesCheckbox
+        isWithCallories={isWithCallories}
+        setIsWithCallories={setIsWithCallories}
+      />
       <ul className="productList">
         {products ? (
           products.map((product, index) => {
@@ -28,7 +39,17 @@ export const ProductsList = ({ products, setCurrentProduct }) => {
                 data-prodid={product.id}
                 onClick={onClickHandlerProductList}
               >
-                {`${product.name} : (${product.type})`}
+                <div className="listingLineDescription">
+                  {`${product.name} : (${product.type})`}
+                </div>
+                <div className="listingLineButtons">
+                  <div className="addGrouppButton">
+                    <div className={`listPageweightRangerWrapper ${isWithCallories ? 'hide' : ''}`}>
+                      <WeightRange  setWeightCoefficient={setWeightCoefficient} />
+                    </div>
+                    <i onClick={onClickHandlerAddProduct} class="material-icons">add_circle_outline</i>
+                  </div>
+                </div>
               </li>
             );
           })
