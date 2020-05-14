@@ -7,12 +7,13 @@ import "./style.scss";
 import { DBContext } from "../../Services/context/DBContext";
 import { ProductsDetail } from "./ProductsDetail";
 import { ProductsList } from "./ProductList";
-import { useRouteMatch} from "react-router-dom";
+import { Link, useRouteMatch} from "react-router-dom";
 import { BackButton } from "../../../components/BackButton";
 import { DateSwitcher } from "../../../components/DateSwitcher";
 import { CaloriesDisplayer } from "../../components/caloriesDisplayer";
 import { NutrientsDisplayer } from "../../components/nutrientsDisplayer";
 import { Graph } from "../../components/nutrientsDisplayer/Graph";
+import { MoreDetails } from "../../../components/MoreDetails";
 
 export const AddFood = () => {
   const product =  {
@@ -46,6 +47,7 @@ export const AddFood = () => {
     }
   };
   const [currentProduct, setCurrentProduct] = React.useState(product);
+  const [weightCoefficient, setWeightCoefficient] = React.useState(1);
 
   const context = React.useContext(DBContext);
   const products = context.DB.parts.caloriesPart.products;
@@ -120,13 +122,23 @@ export const AddFood = () => {
         </div>
         </div>
         <div className="col s12 l6">
-          <ProductsDetail currentProduct={currentProduct} />
+          <ProductsDetail
+            currentProduct={currentProduct}
+            weightCoefficient={weightCoefficient}
+            setWeightCoefficient={setWeightCoefficient}
+          />
         </div>
         <div className="col s12 l6">
           <ProductsList
             products={products}
             setCurrentProduct={setCurrentProduct}
+            setWeightCoefficient={setWeightCoefficient}
           />
+          <div class="newProductLinkWrapper center-align">
+            <Link to="/health/addfood/newProduct" class="center-align waves-effect waves-light btn">
+              Add a new product
+            </Link>
+          </div>
         </div>
       </div>
     </BodyContentBox>

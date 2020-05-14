@@ -1,0 +1,77 @@
+.newProduct{
+    padding: 40px 60px;
+    font-family: monospace ;
+
+    .newProductHeader{
+        display: flex;
+        align-items: center;
+        padding-bottom: 15px;
+
+        span{
+            font-size: 3rem;
+            margin: auto;
+            transform: translateX(-55px);
+        }
+    }
+
+    .nutrientsForm .formLineBox .labelBox label,
+    .nutrientsForm .formLineBox .inputBox label{
+        font-family: monospace ;
+    }
+
+    
+
+
+
+
+
+    @media (min-width:991px) {
+        .nutrientsForm{
+
+            .formLineBox {
+                display: flex;
+                width: 100%;
+                flex-wrap: wrap;
+
+                label{
+                    font-size: 15px;
+                }
+
+                .labelBox {
+                    width: 160px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .viaminsLabel{
+                    width: 250px;
+                }
+
+                .nutrimentDetails{
+                    .labelBox {
+                        width: 180px;
+                    }
+                }
+    
+                .inputBox {
+                    width: 80%;
+                    padding: 0px;
+        
+                    label.sexLabel + label.sexLabel {
+                        margin-left: 30px;
+                    }
+                }
+
+                .nutrimentDetails{
+    
+                    &>div{
+                        width: 100%;
+                        margin-left: 40px;
+                    }
+                }
+            }
+    
+            
+        }
+    }
+}
