@@ -4,6 +4,7 @@ import "./style.scss";
 import { DateSwitcher } from "../../../components/DateSwitcher";
 import { NutritionData } from "./components/nutritionData";
 import { BreakfastButtons } from "../../components/BreakfastButtons";
+import { AddEmotionFast } from "./components/AddEmotionFast";
 
 export const Home = () => {
   return (
@@ -19,7 +20,9 @@ export const Home = () => {
           <div className="breakFastButtons_wrapper">
             <BreakfastButtons />
           </div>
-          <div className="addEmotions_hook">emotiions</div>
+          <div className="addEmotions_hook">
+            <AddEmotionFast />
+          </div>
           <div className="addWater_hook">AddWater</div>
           <div className="addCoffee_hook">AddCofee</div>
           <div className="addSlipTime_hook"></div>

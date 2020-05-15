@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import "../style.scss";
 import { CaloriesDisplayer } from "../../../components/caloriesDisplayer";
 import { NutrientsDisplayer } from "../../../components/nutrientsDisplayer";
 import { MoreDetails } from "../../../../components/MoreDetails";
