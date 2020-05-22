@@ -1,0 +1,146 @@
+.emotionCirclesWithDescription{
+      
+    .emotionCircles{
+
+        margin: 15px 0 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;  
+
+          input{
+            opacity: 0;
+          }
+
+          .circleWrapper{
+            display: block;
+            width: 10%;
+            position: relative;
+            height: 38px;
+                   
+            span{
+              position: absolute;
+              top: 0%;
+              left:0%;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 0;
+              margin: 0;
+              color: #333;
+              font-size: 15px;
+              cursor: pointer;
+              border-radius: 100%;
+              border: 2px solid rgb(66, 65, 65);
+              transition: all 0.3s;
+
+              &:hover {
+                color: #fff;
+              }
+
+              &::before{
+                content: none;
+                display: none;
+              }
+            }
+          }
+
+        input:checked + span{
+          color: #fff;
+        }
+
+        [type="radio"]+span:before, [type="radio"]+span:after{
+          content: none;
+          display: none;
+        }
+
+        .circle1:hover, input:checked + .circle1 {
+          background: #333333;
+        }
+
+        .circle2:hover, input:checked + .circle2 {
+          background: #444040;
+        }
+
+        .circle3:hover, input:checked + .circle3 {
+          background: #3f5f4d;
+        }
+
+        .circle4:hover, input:checked + .circle4 {
+          background: #5d714e;
+        }
+
+        .circle5:hover, input:checked + .circle5 {
+          background: #68bf27;
+        }
+
+        .circle6:hover, input:checked + .circle6 {
+          background: #66cc1a;
+        }
+
+        .circle7:hover, input:checked + .circle7 {
+          background: #80ea31;
+        }
+
+        .circle8:hover, input:checked + .circle8 {
+          background: #78f11e;
+        }
+
+        .circle9:hover, input:checked + .circle9 {
+          background: #21e053;
+        }
+    }
+
+    .emotionDescription{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+    
+     .emotionDescTerrible{
+        width: 68px;
+        
+       
+        i{
+          padding-left: 7px;
+          padding-top: 4px;
+        }
+      
+        span{
+          padding-top: 35px;
+          color: #000;
+        }
+     }
+
+     .emotionDescOk{
+      width: 50px;
+      text-align: center;
+
+      i{
+        padding-right: 10px;
+        padding-top: 4px;
+      }
+      
+      span{
+        padding-top: 35px;
+        color: #000;
+      }
+     }
+
+     .emotionDescPerfect{
+      width: 58px;
+      text-align: right;
+      
+      i{
+        padding-right: 6px;
+        padding-top: 4px;
+      }
+      
+      span{
+        padding-top: 35px;
+        color: #000;
+      }
+     }
+    }
+  }

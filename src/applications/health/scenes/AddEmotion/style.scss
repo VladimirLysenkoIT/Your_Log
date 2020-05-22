@@ -1,0 +1,95 @@
+.addEmotion{
+    padding: 40px 60px;
+    font-family: monospace ;
+
+    .header{
+        display: flex;
+        align-items: center;
+        padding-bottom: 15px;
+        flex-wrap: wrap;
+        h2{
+            font-size: 3rem;
+            margin: auto;
+            transform: translateX(-55px);
+        }
+        
+        h3{
+            width: 100%;
+        }
+    }
+
+    .body{
+        form{
+            .emotionCirclesWrapper{
+                .emotionCirclesWithDescription .emotionCircles form .circleWrapper{
+                    height: 60px;
+                }
+                .emotionCirclesWithDescription .emotionDescription .emotionDescTerrible i{
+                    padding-left: 18px;
+                    display: block;
+                }
+                .emotionCirclesWithDescription .emotionDescription .emotionDescOk i{
+                    padding-right: 0px;
+                    display: block;
+                }
+                .emotionCirclesWithDescription .emotionDescription .emotionDescOk{
+                    transform: translateX(-4px);
+                }
+                .emotionCirclesWithDescription .emotionDescription .emotionDescPerfect i{
+                    padding-right: 18px;
+                    display: block;
+                }
+            }
+            .isRelatedWrapper{
+                .labelsWrapper{ 
+
+                    label + label{
+                        margin-left: 30px;
+                    }
+                }
+                .arrowsWrapper {
+                    padding-top: 15px;
+                }
+            }
+
+            .eventsListWrapper{
+                .collapsible{
+                    border: none;
+                    box-shadow: none;
+
+                    .collapsible-header{
+                        background: none;
+                        border: none;
+                    }
+                }
+
+                label{
+                    display: flex;
+                    font-size: inherit;
+                    color: inherit;
+                }
+                .applicationPart{
+                    position: relative;
+                    // display: flex;
+                    // align-items: center;
+                    // flex-wrap: wrap;
+                    padding: 0 0 10px;
+                    i{
+
+                    }
+
+                    ul.eventsList{
+                        // display: none;
+                        padding-top: 10px;
+                        padding-left: 40px;
+                        width: 100%;
+                    }
+
+                    input:checked + i{
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+}

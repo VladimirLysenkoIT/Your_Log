@@ -5,6 +5,7 @@ import { Home } from "./scenes/home/index";
 import { Account } from "./scenes/account";
 import { AddFood } from "./scenes/AddFood";
 import { NewProduct } from "./scenes/AddFood/Scenes/NewProduct";
+import { AddEmotion } from "./scenes/AddEmotion";
 
 
 export const MyRouter = () => {
@@ -28,6 +29,9 @@ export const MyRouter = () => {
         </Route>
         <Route  path="/health/addfood/:eattime" >
           <AddFood />
+        </Route>
+        <Route exact path="/health/AddEmotion">
+          <AddEmotion />
         </Route>
 
         <Route path="/health/knowledgebase">
