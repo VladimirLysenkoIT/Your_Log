@@ -56,10 +56,21 @@
                 .collapsible{
                     border: none;
                     box-shadow: none;
+                    position: relative;
 
                     .collapsible-header{
                         background: none;
-                        border: none;
+                        width: 140px;
+                    }
+
+                    .collapsible-body{
+                        position: absolute;
+                        top: 0;
+                        margin: 0;
+                        padding: 0px 20px 10px 25px;
+                        left: 160px;
+                        border-left: 1px solid #ddd;
+                        border-bottom: none;
                     }
                 }
 
@@ -69,20 +80,15 @@
                     color: inherit;
                 }
                 .applicationPart{
-                    position: relative;
-                    // display: flex;
-                    // align-items: center;
-                    // flex-wrap: wrap;
                     padding: 0 0 10px;
-                    i{
-
-                    }
 
                     ul.eventsList{
-                        // display: none;
                         padding-top: 10px;
-                        padding-left: 40px;
                         width: 100%;
+
+                        li{
+                            padding: 10px 0;
+                        }
                     }
 
                     input:checked + i{
@@ -90,6 +96,15 @@
                     }
                 }
             }
+        }
+    }
+
+    .saveButtonWrapper{
+        text-align: center;
+
+        button{
+            padding: 0px 40px;
+            height: 40px;
         }
     }
 }

@@ -188,6 +188,19 @@ export const AddEmotion = () => {
                 </div>
               </div>
             </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <p>Finally add several lines of description.</p>
+                <textarea name="" id="" cols="30" rows="20"></textarea>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <div className="saveButtonWrapper">
+                 <button class="waves-effect waves-light btn">Save</button>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
       </div>
