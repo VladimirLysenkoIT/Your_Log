@@ -5,8 +5,8 @@ import { DBContext } from "./Services/context/DBContext";
 
 import { MyRouter } from "./MyRouter";
 
-import { Header } from "./components/header/index";
-import { Home } from "./scenes/home/index";
+import { Header } from "./components/Header/index";
+import { Home } from "./scenes/Home/index";
 
 export const Health = () => {
   let { path } = useRouteMatch();

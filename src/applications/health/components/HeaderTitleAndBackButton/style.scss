@@ -1,0 +1,14 @@
+.headerTitleAndBackButton{
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+        
+    h2{
+        font-size: 3rem;
+        margin: auto;
+        transform: translateX(-55px);
+    }
+}
+    

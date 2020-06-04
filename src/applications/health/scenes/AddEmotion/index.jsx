@@ -2,9 +2,10 @@ import React from "react";
 import M from 'materialize-css';
 
 import "./style.scss";
-import { BodyContentBox } from "../../components/bodyContentBox";
+import { BodyContentBox } from "../../components/BodyContentBox";
 import { BackButton } from "../../../components/BackButton";
-import { EmotionCirclesWithDescription } from "../../../EmotionCirclesWithDescription/Index";
+import { EmotionCirclesWithDescription } from "../../../components/EmotionCirclesWithDescription/Index.jsx";
+import { HeaderTitleAndBackButton } from "../../components/HeaderTitleAndBackButton";
 
 export const AddEmotion = () => {
   React.useEffect(()=>{
@@ -19,8 +20,7 @@ export const AddEmotion = () => {
   return (
     <BodyContentBox customClass={"addEmotion"}>
       <div className="header">
-        <BackButton />
-        <h2>Describe your state of mind</h2>
+        <HeaderTitleAndBackButton title={'Describe your state of mind'} />
         <h3>Describe what you feel now. Why you feel it and what do you think you can do about it.</h3>
       </div>
       <div className="body">
@@ -44,6 +44,7 @@ export const AddEmotion = () => {
                 <i className="material-icons">arrow_forward</i>
               </div>
               <div className="input-field col s5">
+                
                 <EmotionCirclesWithDescription />
               </div>
             </div>
@@ -207,8 +208,3 @@ export const AddEmotion = () => {
     </BodyContentBox>
   );
 };
-
-
-// <div className="emotionCirclesWrapper col s5">
-//                 <EmotionCirclesWithDescription />
-//               </div>

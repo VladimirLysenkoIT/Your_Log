@@ -2,7 +2,7 @@ import React from "react";
 
 
 import "./style.scss";
-import { BodyContentBox } from "../../../../components/bodyContentBox";
+import { BodyContentBox } from "../../../../components/BodyContentBox";
 import { NutrientsForm } from "./NutrientsForm";
 import { BackButton } from "../../../../../components/BackButton";
 

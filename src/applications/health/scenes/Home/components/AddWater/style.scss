@@ -1,0 +1,115 @@
+.addWater{
+    padding: 20px 0px 10px;
+
+    .title{
+      text-align: center;
+      font-size: 1.4rem;
+    }
+
+    .mainContent{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 5px;
+      
+      .waterRange{
+        width: 125px;
+        .range{
+          display: flex;
+          align-items: center;
+          padding: 10px 0 4px;
+
+          .glasesNumberDisplayer{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 10px 5px 15px;
+            border-bottom: 1px solid #9e9e9e;
+            width: 100px;
+
+            span{
+              padding: 0 5px;
+            }
+
+            i{
+              color: #2fc2ef;
+              padding-right: 10px;
+            }
+            
+            // taire selector
+            .taireSelectorWrapper{
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+
+              input.select-dropdown{
+              color: transparent;
+              font-size: 0;
+              text-indent: -9999999px;
+              border: none;
+              margin: 0 0 0 5px;
+             }
+
+             ul.dropdown-content.select-dropdown{
+              width: 200px !important;
+              right: 0px;
+              left: unset;
+
+              li{
+                display: flex;
+                align-items: center;
+                padding-left: 10px;
+              }
+            }
+
+            .caret{
+              top: -3px;
+            }
+
+            }
+          }
+
+          button{
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 28px;
+
+            &.back:active{
+              transform: translateY(-1px);
+              transform: scale(1.3);
+            }
+            &.forward:active{
+              transform: scale(1.2);
+            }
+
+            &.disabled{
+                color: #E6EAEA;
+
+                &.forward:active{
+                    transform: translateX(0px);
+                }
+            }
+          }
+        }
+        .description{
+
+          p{
+            text-align: center;
+            font-size: 13px;
+          }
+        }
+      }
+
+      .addTaire{
+        height: auto;
+        line-height: 25px;
+        padding: 2px 20px;
+        
+      }
+    }
+  }

@@ -1,0 +1,57 @@
+ .createCoffee{
+    padding: 40px 60px;
+
+    form {
+        .formLineBox {
+            display: flex;
+            width: 100%;
+            .labelBox {
+                width: 20%;
+                display: flex;
+                align-items: center;
+    
+                label{
+                    font-size: 15px;
+    
+                }
+            }
+          
+            .inputBox {
+                width: 80%;
+                padding: 0px 10%;
+    
+                label.sexLabel + label.sexLabel {
+                    margin-left: 30px;
+                }
+    
+                
+            }
+        }
+
+        button{
+            margin-top: 10px;
+        }
+    }
+
+    .existingTaires{
+            
+        &__table{
+            width: 400px;
+
+            .line{
+                display: flex;
+                justify-content: space-between;
+
+                .name{
+                    width: 26%;
+                }
+
+                .value{
+                    width: 74%;
+                    border-bottom: 1px solid ;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

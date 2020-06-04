@@ -1,11 +1,11 @@
 import React from "react";
 
-import { BodyContentBox } from "../../components/bodyContentBox";
-import { UserDataForm } from "./UserDataForm";
-import { CaloriesDisplayer } from "./CaloriesDisplayer";
+import { BodyContentBox } from "../../components/BodyContentBox";
+import { UserDataForm } from "./components/UserDataForm";
+import { CaloriesDisplayer } from "./components/CaloriesDisplayer";
 
 import "./style.scss";
-import { CaloriesConfigurator } from "./CaloriesConfigurator";
+import { CaloriesConfigurator } from "./components/CaloriesConfigurator";
 
 export const Account = () => {
   // let initialFormState = {

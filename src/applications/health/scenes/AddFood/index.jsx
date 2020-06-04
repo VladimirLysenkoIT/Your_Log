@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BodyContentBox } from "../../components/bodyContentBox";
+import { BodyContentBox } from "../../components/BodyContentBox/index.jsx";
 
 import "./style.scss";
 
@@ -8,12 +8,11 @@ import { DBContext } from "../../Services/context/DBContext";
 import { ProductsDetail } from "./ProductsDetail";
 import { ProductsList } from "./ProductList";
 import { Link, useRouteMatch} from "react-router-dom";
-import { BackButton } from "../../../components/BackButton";
 import { DateSwitcher } from "../../../components/DateSwitcher";
-import { CaloriesDisplayer } from "../../components/caloriesDisplayer";
-import { NutrientsDisplayer } from "../../components/nutrientsDisplayer";
-import { Graph } from "../../components/nutrientsDisplayer/Graph";
-import { MoreDetails } from "../../../components/MoreDetails";
+import { CaloriesDisplayer } from "../../components/CaloriesDisplayer";
+import { Graph } from "../../components/NutrientsDisplayer/Graph";
+import { HeaderTitleAndBackButton } from "../../components/HeaderTitleAndBackButton";
+
 
 export const AddFood = () => {
   const product =  {
@@ -106,8 +105,7 @@ export const AddFood = () => {
       <div className="row">
         <div className="col m12">
         <div className="addFoodHeader">
-          <BackButton />
-          <h2>{traductions[eatTime][language].title}</h2>
+          <HeaderTitleAndBackButton title={traductions[eatTime][language].title} />
           <div className="dateSwitcherWrapper">
             <DateSwitcher />
           </div>

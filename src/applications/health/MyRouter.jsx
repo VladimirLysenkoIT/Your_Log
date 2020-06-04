@@ -1,11 +1,13 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { Home } from "./scenes/home/index";
-import { Account } from "./scenes/account";
+import { Home } from "./scenes/Home/index.jsx";
+import { Account } from "./scenes/Account";
 import { AddFood } from "./scenes/AddFood";
 import { NewProduct } from "./scenes/AddFood/Scenes/NewProduct";
 import { AddEmotion } from "./scenes/AddEmotion";
+import { AddTaire } from "./scenes/Home/scenes/AddTaire";
+import { CreateCoffee } from "./scenes/Home/scenes/CreateCoffee/index.jsx";
 
 
 export const MyRouter = () => {
@@ -27,11 +29,17 @@ export const MyRouter = () => {
         <Route exact path="/health/addfood/newProduct" >
           <NewProduct />
         </Route>
-        <Route  path="/health/addfood/:eattime" >
+        <Route path="/health/addfood/:eattime" >
           <AddFood />
         </Route>
         <Route exact path="/health/AddEmotion">
           <AddEmotion />
+        </Route>
+        <Route exact path="/health/AddNewTaire">
+          <AddTaire />
+        </Route>
+        <Route exact path="/health/createcoffee">
+          <CreateCoffee />
         </Route>
 
         <Route path="/health/knowledgebase">
