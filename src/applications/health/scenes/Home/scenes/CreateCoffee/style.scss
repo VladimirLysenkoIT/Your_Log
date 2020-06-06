@@ -33,23 +33,32 @@
         }
     }
 
-    .existingTaires{
+    .existingCoffees{
             
         &__table{
             width: 400px;
 
-            .line{
-                display: flex;
-                justify-content: space-between;
+            .existingCoffeeBlock{
+                padding-bottom: 40px;
+                .line{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-left: 10px;
 
-                .name{
-                    width: 26%;
-                }
+                    &:first-child{
+                        margin-left: 0;
+                        padding-bottom: 5px;
+                    }
 
-                .value{
-                    width: 74%;
-                    border-bottom: 1px solid ;
-                    text-align: right;
+                    .name{
+                        width: 26%;
+                    }
+    
+                    .value{
+                        width: 74%;
+                        border-bottom: 1px solid ;
+                        text-align: right;
+                    }
                 }
             }
         }
