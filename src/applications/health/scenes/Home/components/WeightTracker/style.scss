@@ -1,0 +1,152 @@
+
+.weightTracker{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 12rem;
+  justify-content: space-between;
+
+  .title{
+    text-align: center;
+    font-size: 1.4rem;
+    width: 100%;
+  }
+
+  .weightRanger{
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    align-items: center;
+
+    .rangeWrapper{
+      width: 125px;
+      .range{
+        display: flex;
+        align-items: center;
+  
+        .weightDisplayer{
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 5px 10px 5px 15px;
+          border-bottom: 1px solid #9e9e9e;
+          width: 100px;
+  
+          span{
+            padding: 0 3px;
+          }
+        
+        }
+  
+        button{
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 28px;
+  
+          &.back:active{
+            transform: translateY(-1px);
+            transform: scale(1.3);
+          }
+          &.forward:active{
+            transform: scale(1.2);
+          }
+  
+          &.disabled{
+              color: #E6EAEA;
+  
+              &.forward:active{
+                  transform: translateX(0px);
+              }
+          }
+        }
+      }
+    }
+
+    .saveButtonWrapper{
+      margin-left: 20px;
+      margin-top: 5px;
+      button{
+        height: 27px;
+        line-height: 27px;
+      }
+    }
+  }
+
+
+  .balanceImageWrapper{
+    padding-top: 10px;
+    width: 120px;
+
+    .balanceImage{
+
+      .mainSquare{
+        width: 120px;
+        height: 120px;
+        border: 2px solid;
+        border-radius: 10px;
+
+        .display{
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          width: 25%;
+          height: 10px;
+          margin: 10px auto 0;
+          border: 1px solid;
+          
+
+          .displayFlash{
+            border-left: 1px solid;
+            width: 1px;
+            height: 90%;
+            transform: rotate(-52deg);
+            position: relative;
+            left: -2px;
+          }
+        }
+
+        .footsPlace{
+          border-top: 1px solid;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          margin-top: 10px;
+          padding: 10px 10px 0;
+
+          &>div{
+            width: 25%;
+            height: 60px;
+            border: 1px solid;
+            border-radius: 20px;
+          }
+
+          .leftFoot{
+            transform: rotate(-10deg);
+          }
+
+          .rightFoot{
+            transform: rotate(10deg);
+          }
+        }
+      }
+    }
+  }
+
+  .weightStatsGraphWrapper{
+    padding-top: 10px;
+
+    .weightStatsGraph{
+      height: 120px;
+      width: 235px;
+      border-left: 1px solid;
+    }
+  }
+
+  .buttonsBox{
+    width: 100%;
+    text-align: center;
+  }
+  
+}

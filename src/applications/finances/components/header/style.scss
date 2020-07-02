@@ -33,6 +33,7 @@
             color: #E6EAEA;
             font-size: 3rem;
             font-weight: 900;
+            font-family: 'M PLUS 1p', sans-serif;
         }
     }
 
@@ -59,7 +60,7 @@
                 .burger{
                     width: 50px;
                     margin-left: 10px;
-                    div{
+                    .burger-line{
                         width: 100%;
                         border-bottom: 2px solid $borderColor;
                         padding-top: 10px;
@@ -72,7 +73,7 @@
             }
 
             .externalNavigation{
-                display: block !important;
+                display: none;
             }
         }
 

@@ -59,7 +59,7 @@
                 .burger{
                     width: 50px;
                     margin-left: 10px;
-                    div{
+                    .burger-line{
                         width: 100%;
                         border-bottom: 2px solid $borderColor;
                         padding-top: 10px;
@@ -69,10 +69,6 @@
                         }
                     }
                 }
-            }
-
-            .externalNavigation{
-                display: block !important;
             }
         }
 

@@ -7,6 +7,7 @@ import { MyRouter } from "./MyRouter";
 
 import { Header } from "./components/Header/index";
 import { Home } from "./scenes/Home/index";
+import { Footer } from "./components/Footer";
 
 export const Health = () => {
   let { path } = useRouteMatch();
@@ -21,6 +22,7 @@ export const Health = () => {
           <MyRouter />
         </Route>
       </Switch>
+      <Footer />
     </DBContext.Provider>
   );
 };

@@ -7,6 +7,7 @@ import { BreakfastButtons } from "./components/BreakfastButtons";
 import { AddEmotion } from "./components/AddEmotion";
 import { AddWater } from "./components/AddWater";
 import { AddCoffee } from "./components/AddCoffee";
+import { WeightTracker } from "./components/WeightTracker";
 
 export const Home = () => {
   return (
@@ -14,25 +15,30 @@ export const Home = () => {
       <BodyContentBox customClass={"home"}>
         
         <div className="homePageStatsWrapper">
-          <div className="dateSwitcher_wrapper">
+          <div className="dateSwitcherComponentWrapper">
             <DateSwitcher />
           </div>
-          <div className="nutritionData_wrapper">
+          <div className="nutritionDataComponentWrapper">
             <NutritionData />
           </div>
-          <div className="breakFastButtons_wrapper">
+          <div className="breakFastButtonsComponentWrapper">
             <BreakfastButtons />
           </div>
-          <div className="addEmotions_hook">
+          <div className="addEmotionsComponentWrapper">
             <AddEmotion />
           </div>
-          <div className="addWater_hook">
+          <div className="addWaterComponentWrapper">
             <AddWater />
           </div>
-          <div className="addCoffee_hook">
+          <div className="addCoffeeComponentWrapper">
             <AddCoffee />
           </div>
-          <div className="addSlipTime_hook"></div>
+          <div className="weightTrackerComponentWrapper">
+            <WeightTracker />
+          </div>
+          <div className="addSlipTimeComponentWrapper ">
+            
+          </div>
         </div>
       </BodyContentBox>
     </div>
