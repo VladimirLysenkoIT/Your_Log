@@ -1,0 +1,27 @@
+@import "../../../../variables.scss";
+
+    
+.logoWrapper{
+    border: 1px solid $borderColor;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: $transition03;
+
+    &:hover{
+        background: #fff;
+        color: $hover_colorOnWhiteBG;
+    }
+
+    .logo{
+        display: flex;
+        padding: 20px 40px;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: #E6EAEA;
+        font-size: 3rem;
+        font-weight: 900;
+    }
+}

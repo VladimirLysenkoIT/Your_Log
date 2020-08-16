@@ -1,0 +1,64 @@
+@import "../../../../variables.scss";
+
+.App {
+    nav{
+      background: none;
+      box-shadow: none;
+    }
+}
+  
+.App-header {
+    display: flex;
+    flex-wrap: wrap;
+
+    .navigation{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .externalNavigation_wrapper{
+            width: 15%;
+            border: 1px solid $borderColor;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .externalNavigation_button{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                position: relative;
+                padding: 0 2px 2px;
+                
+                a.externalNavigationTrigger{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                }
+
+                .buttonTitle{
+                    font-size: 25px;
+                    color: #039be5;
+                }
+                
+                .burger{
+                    width: 50px;
+                    margin-left: 10px;
+                    .burger-line{
+                        width: 100%;
+                        border-bottom: 2px solid $borderColor;
+                        padding-top: 10px;
+
+                        &:first-child{
+                            padding-top: 7px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}

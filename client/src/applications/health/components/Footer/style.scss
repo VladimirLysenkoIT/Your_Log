@@ -1,0 +1,43 @@
+@import "../../../../variables.scss";
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0px auto;
+    padding: 10px 40px;
+    
+    border-top: 1px solid $borderColor;
+
+    .logoWrapper{
+        width: 20%;
+        border: none;
+
+        .logo{
+            font-size: 1.6rem;
+            color: #4da2a2;
+        }
+    }
+    
+    .internalNavigationWrapper{
+        width: 75%;
+        height: 63px;
+
+        .internalNavigation{
+
+            ul{
+
+                li{
+
+                    a{
+                        font-size: .9rem;
+                        line-height: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
