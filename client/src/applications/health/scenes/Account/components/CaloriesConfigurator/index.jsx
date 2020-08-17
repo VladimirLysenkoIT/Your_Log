@@ -1,29 +1,20 @@
 import React from 'react';
 import M from 'materialize-css';
 
-export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, setNutritionRatioInDB}) => {
-    
-    const [caloriesGoalFormData, setCaloriessGoalFormData] = React.useState('2');
+export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, caloriesRatioFormData, setCaloriesRatioFormData, updateNutritionRatioInDB}) => {
     React.useEffect(()=>{
         calculateCalories();
-    },[userData, caloriesGoalFormData])
+    },[caloriesRatioFormData])
 
-    const initialCaloriesRatio = {
-        carbs: "40",
-        fat: "25",
-        protein: "35"
-    };
-    let validatedCaloriesRatio = {...initialCaloriesRatio};
-    const [caloriesRatioFormData, setCaloriesRatioFormData] = React.useState(initialCaloriesRatio);
+    const [isDataWasChanged, setIsDataWasChanged] = React.useState(false)
 
-    const onChangeHandlerCaloriesGoal = (e)=>{
-        setCaloriessGoalFormData(e.target.value);
-    }
+    let validatedCaloriesRatio = {...caloriesRatioFormData};
 
     const onChangeHandlerCaloriesRatio = (e)=>{
         let newCaloriesRatioFormData = {...caloriesRatioFormData};
+        setIsDataWasChanged(true)
 
-        newCaloriesRatioFormData[e.target.name] = e.target.value;
+        newCaloriesRatioFormData[e.target.name] = e.target.value * 1;
         setCaloriesRatioFormData(newCaloriesRatioFormData);
     }
 
@@ -35,7 +26,10 @@ export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, setNut
         if(nutrientsSum === 100){
             calculateCalories()
 
-            setNutritionRatioInDB(caloriesRatioFormData)
+            if(isDataWasChanged){
+                updateNutritionRatioInDB(caloriesRatioFormData)
+                setIsDataWasChanged(false)
+            }
         }else if(nutrientsSum < 100){
             M.toast({html: 'Somme de nutrients doit etre égale à 100%'})
             
@@ -101,14 +95,14 @@ export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, setNut
         caloriesToLoseWeight = caloriesWithActivity * 0.8;
         caloriesToGainWeight = caloriesWithActivity * 1.2;
 
-        switch (caloriesGoalFormData) {
-            case '1':
+        switch (caloriesRatioFormData.goalCoefficient) {
+            case 1:
                 selectedNumberOfCalories = caloriesToLoseWeight;
             break;
-            case '2':
+            case 2:
                 selectedNumberOfCalories = caloriesWithActivity;
             break;
-            case '3':
+            case 3:
                 selectedNumberOfCalories = caloriesToGainWeight;
             break;
         }
@@ -117,9 +111,10 @@ export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, setNut
         calculateNutrients(selectedNumberOfCalories);
     }
    
-    if(userData === ''){
+    if(userData === '' || caloriesRatioFormData === ''){
         return 'empty'
     }  
+
     console.log('caloriesRatioFormData',caloriesRatioFormData);
     return (
         <div className="caloriesDisplayer">
@@ -137,29 +132,26 @@ export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, setNut
                     <div className='inputBox'><input type='number' name='protein' min="0" max="100" step="1" id='proteinsInput' value={caloriesRatioFormData.protein}  onChange={onChangeHandlerCaloriesRatio} /></div>
                 </div>
 
-                
-            
-                <button className="btn waves-effect waves-light" type="submit" name="action">Calculer
-                </button>
-            </form>
-
-            <form action="" className="caloriesGoal">
-            <div className='labelBox'><label htmlFor=''>Votre but:</label></div>
-                    <div className='inputBox' >
-                        <label className='sexLabel'>
-                            <input name='sex' value='1' checked={caloriesGoalFormData === '1'} onChange={onChangeHandlerCaloriesGoal} type='radio'  />
+                <div className='goalInputBox' >
+                        <label className='goalLabel'>
+                            <input name='goalCoefficient' value={1} checked={caloriesRatioFormData.goalCoefficient === 1} onChange={onChangeHandlerCaloriesRatio} type='radio'  />
                             <span>Perdre du poids</span>
                         </label>
-                        <label className='sexLabel'>
-                            <input name='sex' value='2'  checked={caloriesGoalFormData === '2'} onChange={onChangeHandlerCaloriesGoal} type='radio'/>
+                        <label className='goalLabel'>
+                            <input name='goalCoefficient' value={2}  checked={caloriesRatioFormData.goalCoefficient === 2} onChange={onChangeHandlerCaloriesRatio} type='radio'/>
                             <span>Maintenir le poids</span>
                         </label>
-                        <label className='sexLabel'>
-                            <input name='sex' value='3'  checked={caloriesGoalFormData === '3'} onChange={onChangeHandlerCaloriesGoal} type='radio'/>
+                        <label className='goalLabel'>
+                            <input name='goalCoefficient' value={3}  checked={caloriesRatioFormData.goalCoefficient === 3} onChange={onChangeHandlerCaloriesRatio} type='radio'/>
                             <span>Prendre du poids</span>
                         </label>
                     </div>
+            
+                <button className="btn waves-effect waves-light" type="submit" name="action">
+                    Calculer
+                </button>
             </form>
+
         </div>
     );
 }

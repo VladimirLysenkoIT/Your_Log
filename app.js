@@ -21,12 +21,12 @@ async function start(){
             useFindAndModify:false
         })
     } catch (error) {
-        console.log('Server Error', error.message);
+        console.log('Server Error', error.message)
         process.exit(1)
     }
 }
 
 app.listen(PORT, ()=>{
-    console.log(`Server has been started on ${PORT}`);
+    console.log(`Server has been started on ${PORT}`)
     start()
 })

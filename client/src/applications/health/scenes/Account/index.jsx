@@ -23,6 +23,8 @@ export const Account = () => {
     protein: ""
   });
 
+  const [caloriesRatioFormData, setCaloriesRatioFormData] = React.useState('');
+
   const getUserDataFromDB = React.useCallback(async () => {
     try {
         const fetched = await request('/api/userdata/get', 'GET', null,{
@@ -32,9 +34,27 @@ export const Account = () => {
     } catch (error) {}
   }, [])
 
+  const getNutritionRatioDataFromDB = React.useCallback(async () => {
+    try {
+        const fetched = await request('/api/nutrientsRatio/get', 'GET', null,{
+            authorization: `Bearer ${token}`
+        })
+        setCaloriesRatioFormData(fetched)
+    } catch (error) {}
+  }, [])
+
   React.useEffect(()=>{
       getUserDataFromDB()
   }, [getUserDataFromDB])
+
+  React.useEffect(()=>{
+    getNutritionRatioDataFromDB()
+  }, [getNutritionRatioDataFromDB])
+
+  React.useEffect(()=>{
+    
+    console.log('getNutritionRatioDataFromDB under call', caloriesRatioFormData);
+  }, [caloriesRatioFormData])
 
   const updateUserDataInDB = async ()=>{
       try {
@@ -53,7 +73,7 @@ export const Account = () => {
       } catch (error) {}
   }
 
-  const setNutritionRatioInDB = async (nutrimentsRatio)=> {
+  const updateNutritionRatioInDB = async (nutrimentsRatio)=> {
     try {
       const data = await request('/api/nutrientsRatio/update', 'POST', {...nutrimentsRatio},{
         authorization: `Bearer ${token}`
@@ -80,10 +100,14 @@ export const Account = () => {
           <CaloriesConfigurator
             userData={userData}
             setCaloriesAndNutriments={setCaloriesAndNutriments}
-            setNutritionRatioInDB={setNutritionRatioInDB}
+            updateNutritionRatioInDB={updateNutritionRatioInDB}
+            caloriesRatioFormData={caloriesRatioFormData}
+            setCaloriesRatioFormData={setCaloriesRatioFormData}
           />
           <CaloriesDisplayer
             caloriesAndNutriments={caloriesAndNutriments}
+            caloriesRatioFormData={caloriesRatioFormData}
+            setCaloriesRatioFormData={setCaloriesRatioFormData}
           />
         </div>
       </div>
