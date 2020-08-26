@@ -9,7 +9,7 @@ export const WithoutCaloriesCheckbox = ({ isWithCallories, setIsWithCallories })
         <div className="withoutCaloriesCheckbox">
             <form action="">
                 <label>
-                    <input onClick={onClickHandlerWithoutCalories} checked={isWithCallories} type="checkbox" class="filled-in"  />
+                    <input onChange={onClickHandlerWithoutCalories} checked={isWithCallories} type="checkbox" className="filled-in"  />
                     <span>Without callories</span>
                 </label>
             </form>

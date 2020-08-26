@@ -26,7 +26,8 @@ function MainRouter({isAutentificated}) {
         <Route path="/trainings">
           {/* <Redirect to="/todo" /> */}
         </Route>
-        <Redirect exact from='/' to='/health/account'/>
+        
+        <Redirect exact from='/' to='/health/addfood/0'/>
       </Switch>
     )
   }else{

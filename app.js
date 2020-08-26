@@ -12,6 +12,7 @@ app.use('/api/auth', require('./routes/auth.routes.js'))
 app.use('/api/userdata', require('./routes/userdata.routes.js'))
 app.use('/api/nutrientsRatio', require('./routes/nutrientsRatio.routes.js'))
 
+
 async function start(){
     try {
         await mongoose.connect(MONGOURI,{

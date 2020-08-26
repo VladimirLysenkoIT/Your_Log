@@ -1,6 +1,7 @@
 import React from "react";
 import { WeightRange } from "./Components/WeightRange";
 import { WithoutCaloriesCheckbox } from "./Components/WithoutCalloriesCheckbox";
+import { ProductSearch } from "./Components/ProductSearch";
 
 export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient }) => {
   const [isWithCallories, setIsWithCallories] = React.useState(false);
@@ -30,6 +31,7 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
         isWithCallories={isWithCallories}
         setIsWithCallories={setIsWithCallories}
       />
+      <ProductSearch /> 
       <ul className="productList">
         {products ? (
           products.map((product, index) => {
@@ -47,7 +49,7 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
                     <div className={`listPageweightRangerWrapper ${isWithCallories ? 'hide' : ''}`}>
                       <WeightRange  setWeightCoefficient={setWeightCoefficient} />
                     </div>
-                    <i onClick={onClickHandlerAddProduct} class="material-icons">add_circle_outline</i>
+                    <i onClick={onClickHandlerAddProduct} className="material-icons">add_circle_outline</i>
                   </div>
                 </div>
               </li>

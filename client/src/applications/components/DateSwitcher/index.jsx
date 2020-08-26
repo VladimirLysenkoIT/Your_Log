@@ -18,7 +18,7 @@ export const DateSwitcher = ({dataSetter}) => {
     monthsArray[10] = "November";
     monthsArray[11] = "December";
 
-    const [textDate, setTextDate] = React.useState();
+    const [textDate, setTextDate] = React.useState('');
     const [selectedDate, setSelectedDate] = React.useState();
     const [isForwardDateDisabled, setIsForwardDateDisabled] = React.useState(false);
     React.useEffect(()=>{

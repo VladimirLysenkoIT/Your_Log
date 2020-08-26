@@ -12,7 +12,8 @@ import { DateSwitcher } from "../../../components/DateSwitcher";
 import { CaloriesDisplayer } from "../../components/CaloriesDisplayer";
 import { Graph } from "../../components/NutrientsDisplayer/Graph";
 import { HeaderTitleAndBackButton } from "../../components/HeaderTitleAndBackButton";
-
+import { useHttp } from "../../../../hooks/http.hook.js";
+import { AuthContext } from "../../../../context/Auth.context";
 
 export const AddFood = () => {
   const product =  {
@@ -47,6 +48,8 @@ export const AddFood = () => {
   };
   const [currentProduct, setCurrentProduct] = React.useState(product);
   const [weightCoefficient, setWeightCoefficient] = React.useState(1);
+  const {loading, request} = useHttp()
+  const {token} = React.useContext(AuthContext)
 
   const context = React.useContext(DBContext);
   const products = context.DB.parts.caloriesPart.products;
@@ -100,6 +103,18 @@ export const AddFood = () => {
     }
   ];
 
+  const getDataForAutocomplete = async (nutrimentsRatio)=> {
+    try {
+      const data = await request('/api/nutrientsRatio/update', 'POST', {...nutrimentsRatio},{
+        authorization: `Bearer ${token}`
+      })
+
+      if(data.ok){
+        console.log('ok')
+      }
+    } catch (error) {}
+  }
+
   return (
     <BodyContentBox customClass={"addFood"}>
       <div className="row">
@@ -132,8 +147,8 @@ export const AddFood = () => {
             setCurrentProduct={setCurrentProduct}
             setWeightCoefficient={setWeightCoefficient}
           />
-          <div class="newProductLinkWrapper center-align">
-            <Link to="/health/addfood/newProduct" class="center-align waves-effect waves-light btn">
+          <div className="newProductLinkWrapper center-align">
+            <Link to="/health/addfood/newProduct" className="center-align waves-effect waves-light btn">
               Add a new product
             </Link>
           </div>
