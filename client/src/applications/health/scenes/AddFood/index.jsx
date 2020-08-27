@@ -105,7 +105,7 @@ export const AddFood = () => {
 
   const getDataForAutocomplete = async (nutrimentsRatio)=> {
     try {
-      const data = await request('/api/nutrientsRatio/update', 'POST', {...nutrimentsRatio},{
+      const data = await request('/api/products/getDataForAutocomplete', 'POST', {...nutrimentsRatio},{
         authorization: `Bearer ${token}`
       })
 
@@ -146,6 +146,7 @@ export const AddFood = () => {
             products={products}
             setCurrentProduct={setCurrentProduct}
             setWeightCoefficient={setWeightCoefficient}
+            getDataForAutocomplete={getDataForAutocomplete}
           />
           <div className="newProductLinkWrapper center-align">
             <Link to="/health/addfood/newProduct" className="center-align waves-effect waves-light btn">

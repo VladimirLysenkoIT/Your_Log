@@ -3,7 +3,7 @@ import { WeightRange } from "./Components/WeightRange";
 import { WithoutCaloriesCheckbox } from "./Components/WithoutCalloriesCheckbox";
 import { ProductSearch } from "./Components/ProductSearch";
 
-export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient }) => {
+export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient, getDataForAutocomplete }) => {
   const [isWithCallories, setIsWithCallories] = React.useState(false);
   const onClickHandlerProductList = e => {
       const id = e.currentTarget.dataset.prodid;
@@ -31,7 +31,9 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
         isWithCallories={isWithCallories}
         setIsWithCallories={setIsWithCallories}
       />
-      <ProductSearch /> 
+      <ProductSearch
+        getDataForAutocomplete={getDataForAutocomplete}
+      /> 
       <ul className="productList">
         {products ? (
           products.map((product, index) => {

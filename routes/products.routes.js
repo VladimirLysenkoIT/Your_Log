@@ -1,24 +1,45 @@
 const { Router } = require('express')
-const NutrientsRatio = require('../models/NutrientsRatio')
+const Product = require('../models/Product')
 const auth = require('../middleware/auth.middleware')
 const router = Router()
 
-// /api/products/getDataForAutocomplete
-router.get(
-    '/get',
+/**
+ * /api/products/getDataForAutocomplete
+ * 
+ * This function get items from DB and/or API nutrix for autocomplete
+ * We need 10 items to show its in auticomplete
+ * If we have 10 relevant items in DB - return it
+ * If we have nothing relevant in DB - get 10 items (5 normal and 5 brandings) items from API and return it
+ * If we have n relevant items in DB - get 10 - n items from API, merge it with items from DB and return the result 
+ * 
+ */
+router.post(
+    '/getDataForAutocomplete',
     auth,
     async (req, res) =>{        
         try {
+            console.log(req.body);
             // try to find a product in db
+            const products = await Product.find({owner: req.user.userId})
+            const productLength = products.length
 
+            if(productLength >= 10){
+                return res.json(products)
+            }else if(productLength === 0){
+
+                
+            }else{
+
+            }
+            
+            console.log(1);
             // respons.length
 
             // if length >= 10 return
 
             // if respons.length == 0 call nutrix api and send 5 normal products and 5 branded products
 
-            const nutrientsRatio = await NutrientsRatio.findOne({owner: req.user.userId})
-            res.json(nutrientsRatio)
+            
         } catch (error) {
             console.log(error)
             

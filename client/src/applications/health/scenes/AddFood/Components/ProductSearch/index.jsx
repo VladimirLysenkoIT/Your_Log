@@ -3,7 +3,7 @@ import M from 'materialize-css'
 
 import "./style.scss";
 
-export const ProductSearch = () => {
+export const ProductSearch = ({getDataForAutocomplete}) => {
 
     const [searchQuery, setSearchQuery] = React.useState('')
 
@@ -13,6 +13,7 @@ export const ProductSearch = () => {
 
     const autocompleteOnSelectHandler = (selectedValue)=>{
         console.log(selectedValue)
+        getDataForAutocomplete({item:'trololo'})
     }
 
     const initAutocomplete = ()=>{

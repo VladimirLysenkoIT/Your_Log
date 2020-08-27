@@ -2,6 +2,6 @@
     "port": 5000,
     "mongoURI": "mongodb://127.0.0.1:27017/yourLog",
     "jwtSecret": "volodya developer",
-    "apiKey": "3a6cd82f",
-    "apiAuthentificationKey": "234dca81241a5e16ce006eb05d02c730"
+    "nutrixApiId": "3a6cd82f",
+    "nutrix_ApiKey": "234dca81241a5e16ce006eb05d02c730"
 }
