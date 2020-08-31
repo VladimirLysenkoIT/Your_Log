@@ -2,6 +2,13 @@
     "port": 5000,
     "mongoURI": "mongodb://127.0.0.1:27017/yourLog",
     "jwtSecret": "volodya developer",
-    "nutrixApiId": "3a6cd82f",
-    "nutrix_ApiKey": "234dca81241a5e16ce006eb05d02c730"
+    "nutritionix":{
+        "API_ID": "3a6cd82f",
+        "API_KEY": "234dca81241a5e16ce006eb05d02c730",
+        "HOST_NAME": "trackapi.nutritionix.com",
+        "PORT": 443,
+        "USER_AGENT": "Nutritionix API/1.0.0",
+        "ACCEPT_REQUEST_FROM": "* / *",
+        "CACHE_CONTROL": "no-cache"
+    }
 }

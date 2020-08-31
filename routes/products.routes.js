@@ -1,6 +1,7 @@
 const { Router } = require('express')
 const Product = require('../models/Product')
 const auth = require('../middleware/auth.middleware')
+const nutrixRequest = require('../nutrixApiRequest/nutrixRequest')
 const router = Router()
 
 /**
@@ -26,27 +27,32 @@ router.post(
             if(productLength >= 10){
                 return res.json(products)
             }else if(productLength === 0){
+                const apiResponse = await nutrixRequest('orange', 'GET', 'getList')
+                const itemsNumber = apiResponse.common.length 
+                // let result = {response:{}}
+                let result = {}
+                result['response'] = {}
 
-                
+                for (let i = 0; i < itemsNumber; i++) {
+                    // let product = {}
+                    // product.name = apiResponse.common[i].food_name
+                    // product.id = apiResponse.common[i].tag_id
+                    result['response'][apiResponse.common[i].food_name] = null
+                    // result.response.push(product)
+                }
+                console.log(apiResponse)
+                // console.log(result);
+                return res.json(result)
             }else{
 
             }
-            
-            console.log(1);
-            // respons.length
-
-            // if length >= 10 return
-
             // if respons.length == 0 call nutrix api and send 5 normal products and 5 branded products
-
-            
         } catch (error) {
             console.log(error)
             
             res.status(500).json({message: 'Something is went wrong, try again'})
         }
     })
-
 // /api/products/getProduct
 
 // /api/products/addProduct

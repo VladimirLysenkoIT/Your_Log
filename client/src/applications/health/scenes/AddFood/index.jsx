@@ -110,7 +110,9 @@ export const AddFood = () => {
       })
 
       if(data.ok){
+        console.log(data);
         console.log('ok')
+        return data.response   
       }
     } catch (error) {}
   }
