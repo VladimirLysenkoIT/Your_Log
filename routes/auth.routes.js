@@ -87,7 +87,7 @@ async (req, res) =>{
             {expiresIn: '1h'}
         )
 
-        res.json({token, userId: user.id})
+        return res.json({token, userId: user.id})
 
     } catch (error) {
         console.log(error);

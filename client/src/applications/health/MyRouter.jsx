@@ -45,7 +45,7 @@ export const MyRouter = () => {
         <Route path="/health/knowledgebase">
           <span>Knowledge base</span>
         </Route>
-        <Redirect to="/health"/>
+        <Redirect to="/health/addfood/newProduct"/>
       </Switch>
     </div>
   );

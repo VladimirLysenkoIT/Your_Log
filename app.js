@@ -13,7 +13,6 @@ app.use('/api/userdata', require('./routes/userdata.routes.js'))
 app.use('/api/nutrientsRatio', require('./routes/nutrientsRatio.routes.js'))
 app.use('/api/products', require('./routes/products.routes.js'))
 
-
 async function start(){
     try {
         await mongoose.connect(MONGOURI,{

@@ -3,7 +3,7 @@ import M from 'materialize-css'
 
 import "./style.scss";
 
-export const ProductSearch = ({getDataForAutocomplete}) => {
+export const ProductSearch = ({getDataForAutocomplete, searchSubmitHandler}) => {
     /* 
         заебенить сюда стейт со списком для автокомплита
         повесить слушателя на этот стейт и когда он обновляется пушить его в поле автокомплита
@@ -62,6 +62,11 @@ export const ProductSearch = ({getDataForAutocomplete}) => {
         }
     }
 
+    const onSubmitHandler = () => {
+        console.log('on submit');
+        searchSubmitHandler({item:searchQuery})
+    }
+
     React.useEffect(()=>{
         refreshAutocomplete()
      }, [searchQuery])
@@ -71,10 +76,15 @@ export const ProductSearch = ({getDataForAutocomplete}) => {
             <div className="row">
                 <div className="col s12">
                     <div className="row">
-                        <div className="input-field col s12">
-                            <i className="material-icons prefix">textsms</i>
-                            <input type="text" id="autocomplete-input" value={searchQuery} onChange={onChangeHandler} id="autocomplete" className="autocomplete" />
-                            <label htmlFor="autocomplete-input">Autocomplete</label>
+                        <div className="input-field col s12 productSearchFormWrapper">
+                            <div className="productSearchFieldsWrapper">
+                                <i className="material-icons prefix">textsms</i>
+                                <input type="text" id="autocomplete-input" value={searchQuery} onChange={onChangeHandler} onSubmit={onSubmitHandler} id="autocomplete" className="autocomplete" />
+                                <label htmlFor="autocomplete-input">Rechercher un produit</label>
+                            </div>
+                            <div className="productSearchButtonWrapper">
+                                <span className="waves-effect waves-light btn" onClick={onSubmitHandler}>Submit</span>
+                            </div>
                         </div>
                     </div>
                 </div>

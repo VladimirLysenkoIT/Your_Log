@@ -14,6 +14,8 @@ import { Graph } from "../../components/NutrientsDisplayer/Graph";
 import { HeaderTitleAndBackButton } from "../../components/HeaderTitleAndBackButton";
 import { useHttp } from "../../../../hooks/http.hook.js";
 import { AuthContext } from "../../../../context/Auth.context";
+import {TabsComponent} from "../../../components/TabsComponent"
+import { ProductSearch } from "./Components/ProductSearch/index.jsx";
 
 export const AddFood = () => {
   const product =  {
@@ -48,15 +50,21 @@ export const AddFood = () => {
   };
   const [currentProduct, setCurrentProduct] = React.useState(product);
   const [weightCoefficient, setWeightCoefficient] = React.useState(1);
+  const [customProucts, setCustomProucts] = React.useState(null);
+  const [allFindedProducts, setAllFindedProducts] = React.useState(null);
+
+
   const {loading, request} = useHttp()
   const {token} = React.useContext(AuthContext)
 
   const context = React.useContext(DBContext);
-  const products = context.DB.parts.caloriesPart.products;
+  // const products = context.DB.parts.caloriesPart.products;
   const match = useRouteMatch();
   
   const eatTime = match.params.eattime;
   const language = 'fr';
+
+  
 
   const traductions = [
     {
@@ -103,9 +111,9 @@ export const AddFood = () => {
     }
   ];
 
-  const getDataForAutocomplete = async (nutrimentsRatio)=> {
+  const getDataForAutocomplete = async (needle)=> {
     try {
-      const data = await request('/api/products/getDataForAutocomplete', 'POST', {...nutrimentsRatio},{
+      const data = await request('/api/products/getDataForAutocomplete', 'POST', {...needle},{
         authorization: `Bearer ${token}`
       })
 
@@ -116,6 +124,106 @@ export const AddFood = () => {
       }
     } catch (error) {}
   }
+
+  const getAllResultsFromSearch = async (needle)=> {
+    try {
+      const data = await request('/api/products/getAllResultsFromSearch', 'POST', {...needle},{
+        authorization: `Bearer ${token}`
+      })
+
+      if(data.ok){
+        console.log(data);
+        console.log('ok')
+        return data.response   
+      }
+    } catch (error) {}
+  }
+
+  const getCustomProducts = async ()=> {
+    try {
+      const data = await request('/api/products/getCustomProducts', 'get', null,{
+        authorization: `Bearer ${token}`
+      })
+      console.log('custom products function is called');
+      setCustomProucts(data.products)
+      if(data.ok){
+        return data.response
+      }
+    } catch (error) {}
+  }
+
+  const searchSubmitHandler = async (needle)=>{
+    const result = await getAllResultsFromSearch(needle)
+    // console.log(result);
+    setAllFindedProducts(result)
+    console.log(allFindedProducts);
+  }
+
+  React.useEffect(()=>{
+    getCustomProducts()
+  }, [])
+
+  React.useEffect(()=>{
+    console.log('products set');
+  }, [setCustomProucts])
+
+  console.log('custom products:', customProucts);
+  
+  const tabs = [
+    {
+      uniqName:'Recherche',
+      tabTitle:'Chercher un produit',
+      tabButtonClassName:'',
+      components: [
+        <ProductSearch
+        key={1}
+        getDataForAutocomplete={getDataForAutocomplete}
+        searchSubmitHandler={searchSubmitHandler}
+      />,
+      <ProductsList
+          key={2}
+          products={allFindedProducts}
+          setCurrentProduct={setCurrentProduct}
+          setWeightCoefficient={setWeightCoefficient}
+        />
+      ],
+      tabContentClasName:'',
+  
+    },{
+      uniqName:'myproducts',
+      tabTitle:'Mes produits',
+      tabButtonClassName:'',
+      components: [
+        <ProductsList
+          key={3}
+          products={customProucts}
+          setCurrentProduct={setCurrentProduct}
+          setWeightCoefficient={setWeightCoefficient}
+        />,
+        (
+          <div className="newProductLinkWrapper center-align" key={4}>
+            <Link to="/health/addfood/newProduct" className="center-align waves-effect waves-light btn">
+              Add a new product
+            </Link>
+          </div>
+        )
+      ],
+      tabContentClasName:''
+    },{
+      uniqName:'favorits',
+      tabTitle:'Favorites',
+      tabButtonClassName:'',
+      components: [
+        <ProductsList
+          key={5}
+          products={customProucts}
+          setCurrentProduct={setCurrentProduct}
+          setWeightCoefficient={setWeightCoefficient}
+        />
+      ],
+      tabContentClasName:''
+    }
+  ]
 
   return (
     <BodyContentBox customClass={"addFood"}>
@@ -144,19 +252,25 @@ export const AddFood = () => {
           />
         </div>
         <div className="col s12 l6">
-          <ProductsList
-            products={products}
-            setCurrentProduct={setCurrentProduct}
-            setWeightCoefficient={setWeightCoefficient}
-            getDataForAutocomplete={getDataForAutocomplete}
-          />
-          <div className="newProductLinkWrapper center-align">
-            <Link to="/health/addfood/newProduct" className="center-align waves-effect waves-light btn">
-              Add a new product
-            </Link>
-          </div>
+          <TabsComponent tabsArray={tabs}  />
+          
         </div>
       </div>
     </BodyContentBox>
   );
 };
+
+
+{/* <ProductsList
+          products={customProucts}
+          setCurrentProduct={setCurrentProduct}
+          setWeightCoefficient={setWeightCoefficient}
+          getDataForAutocomplete={getDataForAutocomplete}
+        />,
+        (
+          <div className="newProductLinkWrapper center-align">
+            <Link to="/health/addfood/newProduct" className="center-align waves-effect waves-light btn">
+              Add a new product
+            </Link>
+          </div>
+        ) */}
