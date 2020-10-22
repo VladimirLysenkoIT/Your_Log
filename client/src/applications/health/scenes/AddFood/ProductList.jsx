@@ -12,7 +12,8 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
   };
 
   const getProductById = id => {
-    const currentProduct = products.find(product => {
+    const productsList = typeof products.customProducts !== 'undefined' ? products.customProducts : products
+    const currentProduct = productsList.find(product => {
       return product._id === id;
     });
     // console.log('current product:', currentProduct);
@@ -37,7 +38,6 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
 
 
   if(typeof products.productsFromWeb !== 'undefined' || typeof products.customProducts !== 'undefined'){
-    
 
     if(products.productsFromWeb.common.length === 0 && products.productsFromWeb.branded.length === 0 && products.customProducts.length === 0){
       return (

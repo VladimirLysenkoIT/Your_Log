@@ -16,6 +16,51 @@ const router = Router()
  * If we have n relevant items in DB - get 10 - n items from API, merge it with items from DB and return the result 
  * 
  */
+
+const findProductsLike = async (userId, needle = '') => {
+    const products = await Product.aggregate([
+        { 
+            $match: {
+                owner: userId,
+                name: {$regex: needle + '.*', $options: 'i'}
+            }
+        },
+        { $lookup: {
+            from: "productTypes",
+            let: { category: "$category"},
+            pipeline: [
+                { $match:
+                    { $expr:
+                        { $eq: ["$type", "$$category" ]}
+                    }
+                },
+                {
+                    $project: { 
+                        _id: 0,
+                        name: 1
+                    }
+                }
+            ],
+            as: "categoryName"
+          }
+        },
+        {
+            $addFields: {
+                categoryName: {
+                        $let:{
+                            vars: {
+                                categoryName: {$arrayElemAt: ['$categoryName',0]}
+                             },
+                             in: "$$categoryName.name"
+                        }   
+                }
+            }
+        }
+    ])
+
+    return products
+}
+
 router.post(
     '/getDataForAutocomplete',
     auth,
@@ -25,7 +70,8 @@ router.post(
             // try to find a product in db
             const needle = req.body.item.trim()
             console.log('needle', needle);
-            const products = await Product.find({owner: req.user.userId, name:{$regex: needle + '.*', $options: 'i'} })
+            const userId = mongoose.Types.ObjectId(req.user.userId)
+            const products = await findProductsLike(userId, needle)
             const productLength = products.length
             const MAX_IN_AUTOCOMPLETE = 10
             console.log('productLength',productLength)
@@ -84,7 +130,6 @@ router.post(
                 if(takeFromCommon > itemsInCommon){
                     takeFromBranded = (takeFromCommon - itemsInCommon) > apiResponse.branded.length ? apiResponse.branded.length : takeFromCommon - itemsInCommon
                 }
-               
 
                 for (let i=0; i < productLength; i++) {
                     result['response'][products[i].name] = null
@@ -102,7 +147,6 @@ router.post(
 
                 return res.json(result)
             }
-            // if respons.length == 0 call nutrix api and send 5 normal products and 5 branded products
         } catch (error) {
             console.log(error)
             
@@ -118,7 +162,8 @@ router.post(
         try {
             const needle = req.body.item.trim()
             console.log('needle', needle);
-            const products = await Product.find({owner: req.user.userId, name:{$regex: needle + '.*', $options: 'i'} })
+            const userId = mongoose.Types.ObjectId(req.user.userId)
+            const products = await findProductsLike(userId, needle)
             const apiResponse = await nutrixRequest(needle, 'GET', 'getList')
             console.log(apiResponse);
             const result = {
@@ -197,44 +242,8 @@ router.get(
     auth,
     async (req, res) =>{        
         try {
-            const products = await Product.aggregate([
-                { 
-                    $match: {
-                        owner: mongoose.Types.ObjectId(req.user.userId)
-                    }
-                },
-                { $lookup: {
-                    from: "productTypes",
-                    let: { category: "$category"},
-                    pipeline: [
-                        { $match:
-                            { $expr:
-                                { $eq: ["$type", "$$category" ]}
-                            }
-                        },
-                        {
-                            $project: { 
-                                _id: 0,
-                                name: 1
-                            }
-                        }
-                    ],
-                    as: "categoryName"
-                  }
-                },
-                {
-                    $addFields: {
-                        categoryName: {
-                                $let:{
-                                    vars: {
-                                        categoryName: {$arrayElemAt: ['$categoryName',0]}
-                                     },
-                                     in: "$$categoryName.name"
-                                }   
-                        }
-                    }
-                }
-            ])
+            const userId = mongoose.Types.ObjectId(req.user.userId)
+            const products = await findProductsLike(userId)
 
             res.status(200).json({products:products})
         } catch (error) {

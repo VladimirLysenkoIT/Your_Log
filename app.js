@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const app = express()
 const PORT = config.get('port')
-// const MONGOURI = config.get('mongoURI')
+const MONGOURI = config.get('mongoURI')
 
 app.use(express.json({extended: true}))
 
@@ -15,18 +15,18 @@ app.use('/api/products', require('./routes/products.routes.js'))
 
 async function start(){
     try {
-        // await mongoose.connect(MONGOURI,{
-        //     useNewUrlParser: true,
-        //     useUnifiedTopology:true,
-        //     useCreateIndex:true,
-        //     useFindAndModify:false
-        // })
-        await mongoose.connect('mongodb+srv://volodya:123456qMongo@cluster0.dlrpx.mongodb.net/<dbname>?retryWrites=true&w=majority',{
+        await mongoose.connect(MONGOURI,{
             useNewUrlParser: true,
             useUnifiedTopology:true,
             useCreateIndex:true,
             useFindAndModify:false
         })
+        // await mongoose.connect('mongodb+srv://volodya:123456qMongo@cluster0.dlrpx.mongodb.net/<dbname>?retryWrites=true&w=majority',{
+        //     useNewUrlParser: true,
+        //     useUnifiedTopology:true,
+        //     useCreateIndex:true,
+        //     useFindAndModify:false
+        // })
 
 
         
