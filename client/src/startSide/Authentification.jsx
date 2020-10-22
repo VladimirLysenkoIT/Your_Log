@@ -29,15 +29,15 @@ export const Authentification = ()=>{
     const onChangeHandler = e => {
         setForm({...form,[e.target.name]:e.target.value})
         
-        console.log(form);
+        // console.log(form);
     }
 
     const loginHandler = async () => {
         try {
             const data = await request('/api/auth/login', 'POST', {...form})
-            console.log('data', data);
+            // console.log('data', data);
             auth.login(data.token, data.userId)
-            console.log('data', data);
+            // console.log('data', data);
         } catch (error) {}
     }
 

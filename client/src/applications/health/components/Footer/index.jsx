@@ -9,7 +9,6 @@ import { InternalNavigation } from './components/InternalNavigation';
 export const Footer = () => {
     const context = React.useContext(DBContext);
     const internalPages = context.DB.parts.caloriesPart.internalPagesList;
-    console.log('internalPages', internalPages);
     
     return (
         <footer className="">

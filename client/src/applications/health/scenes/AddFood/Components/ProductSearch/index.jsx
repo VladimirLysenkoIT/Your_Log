@@ -23,11 +23,9 @@ export const ProductSearch = ({getDataForAutocomplete, searchSubmitHandler}) => 
         if (autocompleteItems !== 1) {
             autocompleteInstance.updateData(autocompleteItems)
             autocompleteInstance.open()
-            console.log('autocomplete items', autocompleteItems);
+            // console.log('autocomplete items', autocompleteItems);
         }
     }, [autocompleteItems])
-
-   
 
     const initAutocomplete = ()=>{
      const options = {
@@ -45,7 +43,7 @@ export const ProductSearch = ({getDataForAutocomplete, searchSubmitHandler}) => 
 
 
     const autocompleteOnSelectHandler = (selectedValue)=>{
-        console.log(selectedValue)
+        // console.log(selectedValue)
     }
 
     const onChangeHandler = (e)=>{
@@ -54,17 +52,19 @@ export const ProductSearch = ({getDataForAutocomplete, searchSubmitHandler}) => 
 
     const refreshAutocomplete = async ()=>{
         setAutocompleteItems('')
-        console.log('refreshAutocomplete')
+        // console.log('refreshAutocomplete')
         if (searchQuery.length > 2) {
             const dataForAutocomplete = await getDataForAutocomplete({item:searchQuery})
-            console.log('dataForAutocomplete', dataForAutocomplete)
+            // console.log('dataForAutocomplete', dataForAutocomplete)
             setAutocompleteItems(dataForAutocomplete)
         }
     }
 
     const onSubmitHandler = () => {
-        console.log('on submit');
-        searchSubmitHandler({item:searchQuery})
+        // console.log('on submit');
+        if(searchQuery.length > 0){
+            searchSubmitHandler({item:searchQuery})
+        }
     }
 
     React.useEffect(()=>{
@@ -83,7 +83,7 @@ export const ProductSearch = ({getDataForAutocomplete, searchSubmitHandler}) => 
                                 <label htmlFor="autocomplete-input">Rechercher un produit</label>
                             </div>
                             <div className="productSearchButtonWrapper">
-                                <span className="waves-effect waves-light btn" onClick={onSubmitHandler}>Submit</span>
+                                <span className={"waves-effect waves-light btn " + (searchQuery === '' && 'disabled')}  onClick={onSubmitHandler}>Submit</span>
                             </div>
                         </div>
                     </div>

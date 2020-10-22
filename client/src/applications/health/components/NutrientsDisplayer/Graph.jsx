@@ -8,7 +8,6 @@ export const Graph = ({ calories,protein,carbs,fat }) => {
     const caloriesFromProtein = protein * CALORIES_IN_PROTEIN;
 
     const proteinPourcentage = (caloriesFromProtein / calories * 100).toFixed(1);
-    console.log(protein);
     
     return proteinPourcentage;
   }

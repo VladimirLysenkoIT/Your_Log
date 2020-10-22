@@ -58,8 +58,8 @@ export const Account = () => {
 
   const updateUserDataInDB = async ()=>{
       try {
-          console.log('update user')
-          console.log(userData);
+          // console.log('update user')
+          // console.log(userData);
           
           const data = await request('/api/userdata/update', 'POST', {...userData},{
             authorization: `Bearer ${token}`
@@ -67,7 +67,7 @@ export const Account = () => {
           message(data.message)
 
           if(data.ok){
-            console.log('ok')
+            // console.log('ok')
           }
           
       } catch (error) {}
@@ -81,7 +81,7 @@ export const Account = () => {
       message(data.message)
 
       if(data.ok){
-        console.log('ok')
+        // console.log('ok')
       }
     } catch (error) {}
   }

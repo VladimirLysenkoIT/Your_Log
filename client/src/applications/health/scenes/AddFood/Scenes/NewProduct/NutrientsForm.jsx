@@ -90,9 +90,9 @@ export const NutrientsForm = ({addNewProductToDb}) => {
                 fieldValue = ''
             }
         }else{
-            console.log('onFocusFieldHandler')
-            console.log('fieldName:', fieldName)
-            console.log('to str:', initialFormStateData.nutrients[fieldName])
+            // console.log('onFocusFieldHandler')
+            // console.log('fieldName:', fieldName)
+            // console.log('to str:', initialFormStateData.nutrients[fieldName])
             if(fieldValue === initialFormStateData.nutrients[fieldName].toString()){
                 fieldValue = ''
             }
