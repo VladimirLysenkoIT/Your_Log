@@ -118,8 +118,8 @@ export const AddFood = () => {
       })
 
       if(data.ok){
-        console.log(data);
-        console.log('ok')
+        // console.log(data);
+        // console.log('ok')
         return data.response   
       }
     } catch (error) {}
@@ -132,8 +132,8 @@ export const AddFood = () => {
       })
 
       if(data.ok){
-        console.log(data);
-        console.log('ok')
+        // console.log(data);
+        // console.log('ok')
         return data.response   
       }
     } catch (error) {}
@@ -141,10 +141,11 @@ export const AddFood = () => {
 
   const getCustomProducts = async ()=> {
     try {
+      // console.log('GET CUSTOM PRODUCTS');
       const data = await request('/api/products/getCustomProducts', 'get', null,{
         authorization: `Bearer ${token}`
       })
-      console.log('custom products function is called');
+      // console.log('custom products function is called');
       setCustomProucts(data.products)
       if(data.ok){
         return data.response
@@ -156,7 +157,7 @@ export const AddFood = () => {
     const result = await getAllResultsFromSearch(needle)
     // console.log(result);
     setAllFindedProducts(result)
-    console.log(allFindedProducts);
+    // console.log(allFindedProducts);
   }
 
   React.useEffect(()=>{
@@ -164,10 +165,10 @@ export const AddFood = () => {
   }, [])
 
   React.useEffect(()=>{
-    console.log('products set');
+    // console.log('products set');
   }, [setCustomProucts])
 
-  console.log('custom products:', customProucts);
+  // console.log('custom products:', customProucts);
   
   const tabs = [
     {

@@ -12,7 +12,6 @@ export const TabsComponent = ({tabsArray}) => {
     }
   })
 
-  console.log('tabsArray', tabsArray);
 
   const initAutocomplete = ()=>{
       const tabs = document.getElementById('tabs');
@@ -27,7 +26,6 @@ export const TabsComponent = ({tabsArray}) => {
         <div className="tabButtons">
           <ul id="tabs" className="tabs">
             {tabsArray.map((tab, index)=>{
-              console.log(index);
               return (<li key={index} className={`tab ${tab.tabButtonClassName}`}><a href={`#${tab.uniqName}`}>{tab.tabTitle}</a></li>)
             })}
           </ul>

@@ -7,7 +7,7 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
   const [isWithCallories, setIsWithCallories] = React.useState(false);
   const onClickHandlerProductList = e => {
       const id = e.currentTarget.dataset.prodid;
-      console.log('list clicked. ID:',id);
+      // console.log('list clicked. ID:',id);
       getProductById(id);
   };
 
@@ -15,30 +15,31 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
     const currentProduct = products.find(product => {
       return product._id === id;
     });
-    console.log('current product:', currentProduct);
+    // console.log('current product:', currentProduct);
     setCurrentProduct(currentProduct);
   };
 
   const onClickHandlerAddProduct = e => {
-    console.log('clicked');
+    // console.log('clicked');
     
   };
 
   let contentToShow = '';
   
   if(products === null){
+    // console.log('products null');
     return(
       <div className="noDetails">
-        <span>please wait</span>
+        <span></span>
       </div>
     )
   }
 
 
   if(typeof products.productsFromWeb !== 'undefined' || typeof products.customProducts !== 'undefined'){
-    console.log('products.customProducts', products.customProducts);
-    console.log('products.productsFromWeb', products.productsFromWeb);
-    if(products.productsFromWeb.length === 0 && products.customProducts.length === 0){
+    
+
+    if(products.productsFromWeb.common.length === 0 && products.productsFromWeb.branded.length === 0 && products.customProducts.length === 0){
       return (
         <div className="noDetails">
           <span>No products was finded, try ago</span>
@@ -60,9 +61,6 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
       ),
       (
         products.customProducts.map((product, index) => {
-          console.log('product 123', product);
-          console.log('product name 123', product.name);
-          console.log('product categoryName 123', product.categoryName);
           return (
             <li
               key={index}
@@ -87,7 +85,7 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
       (
         products.productsFromWeb.common.length > 0 && (
           <li
-            key={1}
+            key={2}
           >
             <div className="listingLineDescription">
               Api from internet (common):
@@ -122,7 +120,7 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
     (
       products.productsFromWeb.common.length > 0 && (
         <li
-          key={1}
+          key={3}
         >
           <div className="listingLineDescription">
             Api from internet (branded):
@@ -153,8 +151,31 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
         );
       })
     )]
+  }else{
+    contentToShow = [
+      products.map((product, index) => {
+        return (
+          <li
+            key={index}
+            data-prodid={product._id}
+            onClick={onClickHandlerProductList}
+          >
+            <div className="listingLineDescription">
+              {`${product.name} : (${product.categoryName})`}
+            </div>
+            <div className="listingLineButtons">
+              <div className="addGrouppButton">
+                <div className={`listPageweightRangerWrapper ${isWithCallories ? 'hide' : ''}`}>
+                  <WeightRange  setWeightCoefficient={setWeightCoefficient} />
+                </div>
+                <i onClick={onClickHandlerAddProduct} className="material-icons">add_circle_outline</i>
+              </div>
+            </div>
+          </li>
+        );
+      })
+    ]
   }
-
 
   return (
     <div className="productListWrapper">

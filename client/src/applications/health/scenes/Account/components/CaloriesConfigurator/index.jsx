@@ -66,7 +66,7 @@ export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, calori
         protein = Math.round(totalCalories * proteinPercentage / 4);
         totalCalories = Math.round(totalCalories);
         
-        console.log(totalCalories);
+        // console.log(totalCalories);
         setCaloriesAndNutriments({totalCalories, carbs, fat, protein})
     }
 
@@ -81,7 +81,7 @@ export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, calori
         let caloriesToGainWeight;
         let selectedNumberOfCalories;
 
-        console.log('user data', userData);
+        // console.log('user data', userData);
         
         if(userData.sex === '1'){
             caloriesMinimum = 447.593 + (9.247 * userData.weight) + (3.098 * userData.height) - (4.330 * calculateAge(userData.birthDay));
@@ -89,7 +89,7 @@ export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, calori
             caloriesMinimum = 88.362 + (13.397 * userData.weight) + (4.799 * userData.height) - (5.677 * calculateAge(userData.birthDay));
         }
 
-        console.log('caloriesMinimum', caloriesMinimum);
+        // console.log('caloriesMinimum', caloriesMinimum);
 
         caloriesWithActivity = caloriesMinimum * (userData.activityCoefficient * 1);
         caloriesToLoseWeight = caloriesWithActivity * 0.8;
@@ -115,7 +115,7 @@ export const CaloriesConfigurator = ({userData, setCaloriesAndNutriments, calori
         return 'empty'
     }  
 
-    console.log('caloriesRatioFormData',caloriesRatioFormData);
+    // console.log('caloriesRatioFormData',caloriesRatioFormData);
     return (
         <div className="caloriesDisplayer">
             <form action="" className="caloriesRatio" onSubmit={onSubmitCaloriesRatioForm}>

@@ -79,7 +79,7 @@ export const Registration = ()=>{
                 // }else{
                 //     timestamp = selectedDate.getTime() + timeOffset * -60 * 1000
                 // }
-                // console.log('timestamp', timestamp);
+                console.log('timestamp', timestamp);
 
                 const selectedDate = new Date(newDate)
                 const timestamp = selectedDate.getTime()
@@ -97,13 +97,13 @@ export const Registration = ()=>{
     const onChangeHandler = e => {
         setForm({...form,[e.target.name]:e.target.value})
         
-        console.log(form);
+        // console.log(form);
     }
 
     const registerHandler = async () => {
         try {
-            console.log('registr')
-            console.log(form);
+            // console.log('registr')
+            // console.log(form);
             
             const data = await request('/api/auth/register', 'POST', {...form})
             message(data.message)
@@ -118,9 +118,9 @@ export const Registration = ()=>{
     const loginHandler = async () => {
         try {
             const data = await request('/api/auth/login', 'POST', {...form})
-            console.log('data', data);
+            // console.log('data', data);
             auth.login(data.token, data.userId)
-            console.log('data', data);
+            // console.log('data', data);
         } catch (error) {}
     }
 
