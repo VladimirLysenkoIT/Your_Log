@@ -61,6 +61,294 @@ const findProductsLike = async (userId, needle = '') => {
     return products
 }
 
+// const rewriteApiDetailsResponse = ()=>{
+//     {
+//         "Attributes for natural endpoint": [
+//             {
+//                 "attr_id": "301",
+//                 "name": "calcium",
+//                 "unit": "mg",
+//             },
+//             {
+//                 "attr_id": "205",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "CHOCDF",
+//                 "name": "carbs",
+//                 "unit": "g",
+//                 "bulk_csv_field": "nf_total_carbohydrate",
+//                 "cxh_attribute_name": "CHO-"
+//             },
+//             {
+//                 "attr_id": "601",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "CHOLE",
+//                 "name": "cholesterol",
+//                 "unit": "mg",
+//                 "bulk_csv_field": "nf_cholesterol",
+//                 "cxh_attribute_name": "CHOL-"
+//             },
+//             {
+//                 "attr_id": "208",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "ENERC_KCAL",
+//                 "name": "calories",
+//                 "unit": "kcal",
+//                 "bulk_csv_field": "nf_calories",
+//                 "cxh_attribute_name": "ENER-"
+//             },
+//             {
+//                 "attr_id": "606",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "FASAT",
+//                 "name": "fat_st",
+//                 "unit": "g",
+//                 "bulk_csv_field": "nf_saturated_fat",
+//                 "cxh_attribute_name": "FASAT"
+//             },
+//             {
+//                 "attr_id": "204",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "FAT",
+//                 "name": "fat",
+//                 "unit": "g",
+//                 "bulk_csv_field": "nf_total_fat",
+//                 "cxh_attribute_name": "FAT"
+//             },
+//             {
+//                 "605":"fat_trans"
+//             },
+//             {
+//                 "attr_id": "303",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "FE",
+//                 "name": "iron",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "321":"beta_carotene"
+//             },
+//             {
+//                 "attr_id": "291",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "FIBTG",
+//                 "name": "fiber",
+//                 "unit": "g",
+//                 "bulk_csv_field": "nf_dietary_fiber",
+//                 "cxh_attribute_name": "FIBTSW"
+//             },
+//             {
+//                 "attr_id": "306",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "K",
+//                 "name": "potassium",
+//                 "unit": "mg",
+//                 "bulk_csv_field": "nf_potassium"
+//             },
+//             {
+//                 "attr_id": "307",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "NA",
+//                 "name": "sodium",
+//                 "unit": "mg",
+//                 "bulk_csv_field": "nf_sodium",
+//                 "cxh_attribute_name": "NA"
+//             },
+//             {
+//                 "attr_id": "203",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "PROCNT",
+//                 "name": "proteins",
+//                 "unit": "g",
+//                 "bulk_csv_field": "nf_protein",
+//                 "cxh_attribute_name": "PRO-"
+//             },
+//             {
+//                 "attr_id": "269",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "SUGAR",
+//                 "name": "sugar",
+//                 "unit": "g",
+//                 "bulk_csv_field": "nf_sugars",
+//                 "cxh_attribute_name": "SUGAR-"
+//             },
+//             {
+//                 "539":"sugar_add",
+//             },
+//             {
+//                 "attr_id": "324",
+//                 "2018 NFP": "1",
+//                 "usda_tag": "VITD",
+//                 "name": "vitamin_D",
+//                 "unit": "IU",
+//                 "bulk_csv_field": "nf_vitamin_d_mcg",
+//                 "undefined": "must transform MCG to IU"
+//             },
+            
+//             {
+//                 "262":"caffeine",
+//             },
+//             {
+//                 "326":"vitamin_D3"
+//             },
+//             {
+//                 "attr_id": "312",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "CU",
+//                 "name": "copper",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "325":"vitamin_D2"
+//             },
+//             {
+//                 "851":"omega-3"
+//             },
+//             {
+//                 "attr_id": "645",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "FAMS",
+//                 "name": "fat_mst",
+//                 "unit": "g"
+//             },
+//             {
+//                 "attr_id": "646",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "FAPU",
+//                 "name": "fat_pst",
+//                 "unit": "g"
+//             },
+           
+//             {
+//                 "attr_id": "417",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "FOL",
+//                 "name": "folate",
+//                 "unit": "Âµg"
+//             },
+//             {
+//                 "attr_id": "431",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "FOLAC",
+//                 "name": "folic_acid",
+//                 "unit": "Âµg"
+//             },
+            
+            
+//             {
+//                 "attr_id": "304",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "MG",
+//                 "name": "magnesium",
+//                 "unit": "mg"
+//             },
+//            {
+//                "315": 'manganese'
+//            },
+            
+//             {
+//                 "attr_id": "573",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "NULL",
+//                 "name": "vitamin_E",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "attr_id": "578",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "NULL",
+//                 "name": "vitamin_B12, added",
+//                 "unit": "Âµg"
+//             },
+//             {
+//                 "404":"vitamin_B1"
+//             },
+//             {
+//                 "attr_id": "305",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "P",
+//                 "name": "phosphorus",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "attr_id": "410",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "PANTAC",
+//                 "name": "pantothenic_acid",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "attr_id": "317",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "SE",
+//                 "name": "selenium",
+//                 "unit": "Âµg"
+//             },
+//             {
+//                 "attr_id": "323",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "TOCPHA",
+//                 "name": "vitamin_E",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "attr_id": "318",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "VITA_IU",
+//                 "name": "vitamin_A",
+//                 "unit": "IU"
+//             },
+//             {
+//                 "attr_id": "418",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "VITB12",
+//                 "name": "vitamin_B12",
+//                 "unit": "Âµg"
+//             },
+//             {
+//                 "attr_id": "415",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "VITB6A",
+//                 "name": "vitamin_B6",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "attr_id": "401",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "VITC",
+//                 "name": "vitamin_C",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "attr_id": "430",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "VITK1",
+//                 "name": "vitamin_K",
+//                 "unit": "Âµg"
+//             },
+//             {
+//                 "attr_id": "309",
+//                 "2018 NFP": "0",
+//                 "usda_tag": "ZN",
+//                 "name": "zinc",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "attr_id": "346",
+//                 "usda_tag": "TOCTRG",
+//                 "name": "Tocotrienol, gamma",
+//                 "unit": "mg"
+//             },
+//             {
+//                 "attr_id": "347",
+//                 "usda_tag": "TOCTRD",
+//                 "name": "Tocotrienol,delta",
+//                 "unit": "mg"
+//             }
+
+//         ]
+//     }
+// }
+
 router.post(
     '/getDataForAutocomplete',
     auth,
@@ -74,6 +362,7 @@ router.post(
             const products = await findProductsLike(userId, needle)
             const productLength = products.length
             const MAX_IN_AUTOCOMPLETE = 10
+            
             console.log('productLength',productLength)
             console.log('products',products)
             if(productLength >= 10){
@@ -153,6 +442,42 @@ router.post(
             res.status(500).json({message: 'Something is went wrong, try again'})
         }
     })
+
+router.post(
+    '/getDetailedInfoAboutProductFromApi',
+    auth,
+    async (req, res) =>{        
+        try {
+            // console.log(req.body)
+            // try to find a product in db
+            const userId = mongoose.Types.ObjectId(req.user.userId)
+            const needle = req.body.needle.trim()
+            const productType = req.body.prodType.trim()
+            let apiResponse = null;
+            let result = {
+                response:{}
+            }
+
+            console.log('needle', req.body.needle);
+            console.log('productType', productType);
+            // const apiResponse = await nutrixRequest(needle, 'GET', 'getList')
+            if(productType == 'common'){
+                apiResponse = await nutrixRequest(needle, 'POST', 'getProductProperties')
+            }else{
+                apiResponse = await nutrixRequest(needle, 'GET', 'getBrandedProductProperties')
+            }
+
+            console.log('apiResponse.foods[0]', apiResponse.foods[0]);
+
+            result['response'] = apiResponse.foods[0]
+            return res.json(result)
+        } catch (error) {
+            console.log(error)
+            
+            res.status(500).json({message: 'Something is went wrong, try again'})
+        }
+    }
+)
 
 // Return all results from API and DB. Call when user submits the form
 router.post(

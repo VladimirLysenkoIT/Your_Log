@@ -49,13 +49,25 @@ export const ProductsDetail = ({ currentProduct, weightCoefficient, setWeightCoe
                   <span className="amount">{(currentProduct.fat_st * weightCoefficient).toFixed(1)}</span>
                 </div>
                 <div>
+                  <span className="title">Trans: </span>
+                  <span className="amount">{(currentProduct.fat_trans * weightCoefficient).toFixed(1)}</span>
+                </div>
+
+                
+                <div>
                   <span className="title">Poly-insaturés: </span>
                   <span className="amount">{(currentProduct.fat_pst * weightCoefficient).toFixed(1)}</span>
                 </div>  
+
+                
                 <div>
                   <span className="title">Mono-insaturés: </span>
                   <span className="amount">{(currentProduct.fat_mst * weightCoefficient).toFixed(1)}</span>
                 </div>  
+                <div>
+                  <span className="title">Omega 3: </span>
+                  <span className="amount">{(currentProduct.omega_3 * weightCoefficient).toFixed(1)}</span>
+                </div> 
                 <div>
                   <span className="title">Cholestérol: </span>
                   <span className="amount">{(currentProduct.cholesterol * weightCoefficient).toFixed(1)}</span>
@@ -77,10 +89,19 @@ export const ProductsDetail = ({ currentProduct, weightCoefficient, setWeightCoe
                 <div>
                   <span className="title">Sucres: </span>
                   <span className="amount">{(currentProduct.sugar * weightCoefficient).toFixed(1)}</span>
-                </div>  
+                </div>
+                <div>
+                  <span className="title">Sucres ajoutés: </span>
+                  <span className="amount">{(currentProduct.sugar_add * weightCoefficient).toFixed(1)}</span>
+                </div> 
               </div>
             </div>
-
+            <div className="part caffeinePart">
+              <div className="partTitle">
+                <span className="title">Caffeine:</span>
+                <span className="amount">{(currentProduct.caffeine * weightCoefficient).toFixed(1)}</span>
+              </div>
+            </div>
             <div className="part proteinPart">
               <div className="partTitle">
                 <span className="title">Protéines:</span>
@@ -140,6 +161,14 @@ export const ProductsDetail = ({ currentProduct, weightCoefficient, setWeightCoe
                 <div>
                   <span className="title">Vitamin D: </span>
                   <span className="amount">{(currentProduct.vitamin_D * weightCoefficient).toFixed(1)}</span>
+                </div>
+                <div>
+                  <span className="title">Vitamin D2: </span>
+                  <span className="amount">{(currentProduct.vitamin_D2 * weightCoefficient).toFixed(1)}</span>
+                </div>
+                <div>
+                  <span className="title">Vitamin D3: </span>
+                  <span className="amount">{(currentProduct.vitamin_D3 * weightCoefficient).toFixed(1)}</span>
                 </div>
                 <div>
                   <span className="title">Vitamin E: </span>

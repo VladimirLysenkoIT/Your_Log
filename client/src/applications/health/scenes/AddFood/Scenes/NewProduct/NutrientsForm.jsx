@@ -20,10 +20,14 @@ export const NutrientsForm = ({addNewProductToDb}) => {
             fat_st: 0,
             fat_mst: 0,
             fat_pst: 0,
+            fat_trans: 0,
+            omega_3: 0,
             cholesterol: 0,
             carbs: 0,
             fiber: 0,
             sugar: 0,
+            sugar_add: 0,
+            caffeine: 0,
             proteins: 0,
             salt: 0,
             vitamin_A: 0,
@@ -38,6 +42,8 @@ export const NutrientsForm = ({addNewProductToDb}) => {
             vitamin_B12: 0,
             vitamin_C: 0,
             vitamin_D: 0,
+            vitamin_D3: 0,
+            vitamin_D2: 0,
             vitamin_E: 0,
             vitamin_K: 0,
             calcium: 0,
@@ -167,8 +173,16 @@ export const NutrientsForm = ({addNewProductToDb}) => {
                             <div className='inputBox'><input type='number' min={0} step={0.1} name='fat_st'  value={formData.nutrients.fat_st} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
                         </div>
                         <div className='formLineBox'>
+                            <div className='labelBox'><label htmlFor=''>Gras trans:</label></div>
+                            <div className='inputBox'><input type='number' min={0} step={0.1} name='fat_trans'  value={formData.nutrients.fat_trans} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
+                        </div>
+                        <div className='formLineBox'>
                             <div className='labelBox'><label htmlFor=''>Mono-insaturés:</label></div>
                             <div className='inputBox'><input type='number' min={0} step={0.1} name='fat_mst'  value={formData.nutrients.fat_mst} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
+                        </div>
+                        <div className='formLineBox'>
+                            <div className='labelBox'><label htmlFor=''>Omega 3:</label></div>
+                            <div className='inputBox'><input type='number' min={0} step={0.1} name='omega_3'  value={formData.nutrients.omega_3} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
                         </div>
                         <div className='formLineBox'>
                             <div className='labelBox'><label htmlFor=''>Poly-insaturés:</label></div>
@@ -194,7 +208,19 @@ export const NutrientsForm = ({addNewProductToDb}) => {
                             <div className='labelBox'><label htmlFor=''>Sucres:</label></div>
                             <div className='inputBox'><input type='number' min={0} step={0.1} name='sugar'  value={formData.nutrients.sugar} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
                         </div>
+                        <div className='formLineBox'>
+                            <div className='labelBox'><label htmlFor=''>Sucres ajoutés:</label></div>
+                            <div className='inputBox'><input type='number' min={0} step={0.1} name='sugar_add'  value={formData.nutrients.sugar_add} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
+                        </div>
+                        <div className='formLineBox'>
+                            <div className='labelBox'><label htmlFor=''>Sucres ajoutés:</label></div>
+                            <div className='inputBox'><input type='number' min={0} step={0.1} name='sugar_add'  value={formData.nutrients.sugar_add} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
+                        </div>
                     </div>
+                </div>
+                <div className='formLineBox'>
+                    <div className='labelBox'><label htmlFor=''>Caffeine</label></div>
+                    <div className='inputBox'><input type='number' min={0} step={0.1} name='caffeine'  value={formData.nutrients.caffeine} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
                 </div>
 
                 <div className='formLineBox'>
@@ -259,6 +285,14 @@ export const NutrientsForm = ({addNewProductToDb}) => {
                         <div className='formLineBox'>
                             <div className='labelBox'><label htmlFor=''>D:</label></div>
                             <div className='inputBox'><input type='number' min={0} step={0.1} name='vitamin_D'  value={formData.nutrients.vitamin_D} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
+                        </div>
+                        <div className='formLineBox'>
+                            <div className='labelBox'><label htmlFor=''>D2:</label></div>
+                            <div className='inputBox'><input type='number' min={0} step={0.1} name='vitamin_D2'  value={formData.nutrients.vitamin_D2} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
+                        </div>
+                        <div className='formLineBox'>
+                            <div className='labelBox'><label htmlFor=''>D3:</label></div>
+                            <div className='inputBox'><input type='number' min={0} step={0.1} name='vitamin_D3'  value={formData.nutrients.vitamin_D3} onBlur={onLeaveFieldHandler} onFocus={onFocusFieldHandler} onChange={onChangeHandler}  id=''/></div>
                         </div>
                         <div className='formLineBox'>
                             <div className='labelBox'><label htmlFor=''>E:</label></div>
