@@ -94,9 +94,7 @@ export const ProductsDetail = ({ currentProduct, weightCoefficient, setWeightCoe
                 </div>
                 <div>
                   <span className="title">Sucres ajoutés: </span>
-                  <span className="amount">{
-                    (currentProduct.sugar_add * weightCoefficient).toFixed(1)
-                    }</span>
+                  <span className="amount">{(currentProduct.sugar_add * weightCoefficient).toFixed(1)}</span>
                 </div> 
               </div>
             </div>
