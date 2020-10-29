@@ -3,20 +3,26 @@ import { WeightRange } from "./Components/WeightRange";
 import { WithoutCaloriesCheckbox } from "./Components/WithoutCalloriesCheckbox";
 import { ProductSearch } from "./Components/ProductSearch";
 
-export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient}) => {
+export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient, getApiProductDetails}) => {
   const [isWithCallories, setIsWithCallories] = React.useState(false);
   const onClickHandlerProductList = e => {
       const id = e.currentTarget.dataset.prodid;
-      // console.log('list clicked. ID:',id);
-      getProductById(id);
+      const prodOrigin = e.currentTarget.dataset.prodorigin;
+      const prodType = e.currentTarget.dataset.prodtype;
+
+      if(prodOrigin === 'db'){
+        getCustomProductById(id);
+      }else{
+        getApiProductDetails(id, prodType);
+      }
   };
 
-  const getProductById = id => {
+  const getCustomProductById = id => {
     const productsList = typeof products.customProducts !== 'undefined' ? products.customProducts : products
     const currentProduct = productsList.find(product => {
       return product._id === id;
     });
-    // console.log('current product:', currentProduct);
+    
     setCurrentProduct(currentProduct);
   };
 
@@ -65,6 +71,7 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
             <li
               key={index}
               data-prodid={product._id}
+              data-prodorigin={'db'}
               onClick={onClickHandlerProductList}
             >
               <div className="listingLineDescription">
@@ -98,7 +105,9 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
           return (
             <li
               key={index}
-              data-prodid={product._id}
+              data-prodid={product.food_name}
+              data-prodorigin={'api'}
+              data-prodtype={'common'}
               onClick={onClickHandlerProductList}
             >
               <div className="listingLineDescription">
@@ -133,8 +142,10 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
         return (
           <li
             key={index}
-            data-prodid={product._id}
+            data-prodid={product.nix_item_id}
             onClick={onClickHandlerProductList}
+            data-prodorigin={'api'}
+            data-prodtype={'branded'}
           >
             <div className="listingLineDescription">
               {`${product.food_name} : (${product.brand_name})`}
@@ -158,6 +169,7 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
           <li
             key={index}
             data-prodid={product._id}
+            data-prodorigin={'db'}
             onClick={onClickHandlerProductList}
           >
             <div className="listingLineDescription">
@@ -190,32 +202,3 @@ export const ProductsList = ({ products, setCurrentProduct, setWeightCoefficient
     </div>
   );
 };
-
-
-// {products ? (
-//   products.map((product, index) => {
-//     return (
-//       <li
-//         key={index}
-//         data-prodid={product._id}
-//         onClick={onClickHandlerProductList}
-//       >
-//         <div className="listingLineDescription">
-//           {`${product.name} : (${product.categoryName})`}
-//         </div>
-//         <div className="listingLineButtons">
-//           <div className="addGrouppButton">
-//             <div className={`listPageweightRangerWrapper ${isWithCallories ? 'hide' : ''}`}>
-//               <WeightRange  setWeightCoefficient={setWeightCoefficient} />
-//             </div>
-//             <i onClick={onClickHandlerAddProduct} className="material-icons">add_circle_outline</i>
-//           </div>
-//         </div>
-//       </li>
-//     );
-//   })
-// ) : (
-//   <div className="noDetails">
-//     <span>please wait</span>
-//   </div>
-// )}

@@ -27,8 +27,6 @@ async function start(){
         //     useCreateIndex:true,
         //     useFindAndModify:false
         // })
-
-
         
     } catch (error) {
         console.log('Server Error', error.message)

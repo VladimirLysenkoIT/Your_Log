@@ -29,6 +29,9 @@ module.exports = (query, METHOD, pathName) => {
             case 'getProductProperties':
                 options['path'] = '/v2/natural/nutrients'
                 break;
+            case 'getBrandedProductProperties':
+                options['path'] = `/v2/search/item?nix_item_id=${query}`
+                break;
             default:
                 path = false
                 break;

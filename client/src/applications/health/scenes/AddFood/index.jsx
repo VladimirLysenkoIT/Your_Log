@@ -139,6 +139,21 @@ export const AddFood = () => {
     } catch (error) {}
   }
 
+  
+  const getApiProductDetails = async (needle, prodType)=>{
+    try {
+      const data = await request('/api/products/getDetailedInfoAboutProductFromApi', 'POST', {needle, prodType},{
+        authorization: `Bearer ${token}`
+      })
+
+      if(data.ok){
+        setCurrentProduct(data.response)
+
+        return data.response   
+      }
+    } catch (error) {}
+  }
+
   const getCustomProducts = async ()=> {
     try {
       // console.log('GET CUSTOM PRODUCTS');
@@ -186,6 +201,7 @@ export const AddFood = () => {
           products={allFindedProducts}
           setCurrentProduct={setCurrentProduct}
           setWeightCoefficient={setWeightCoefficient}
+          getApiProductDetails={getApiProductDetails}
         />
       ],
       tabContentClasName:'',

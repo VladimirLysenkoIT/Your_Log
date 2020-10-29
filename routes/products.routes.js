@@ -61,6 +61,67 @@ const findProductsLike = async (userId, needle = '') => {
     return products
 }
 
+const rewriteApiDetailsResponse = (apiResponse)=>{
+    const nutrientsNames = {
+        "301":"calcium",
+        "205":"carbs",
+        "601":"cholesterol",
+        "208":"calories",
+        "606":"fat_st",
+        "204":"fat",
+        "605":"fat_trans",
+        "303":"iron",
+        "321":"beta_carotene",
+        "291":"fiber",
+        "306":"potassium",
+        "307":"sodium",
+        "203":"proteins",
+        "269":"sugar",
+        "539":"sugar_add",
+        "324":"vitamin_D",
+        "262":"caffeine",
+        "326":"vitamin_D3",
+        "312":"copper",
+        "325":"vitamin_D2",
+        "851":"omega-3",
+        "645":"fat_mst",
+        "646":"fat_pst",
+        "417":"folate",
+        "431":"folic_acid",
+        "304":"magnesium",
+        "315": 'manganese',
+        "573":"vitamin_E",
+        "578":"vitamin_B12",
+        "404":"vitamin_B1",
+        "305":"phosphorus",
+        "410":"pantothenic_acid",
+        "317":"selenium",
+        "323":"vitamin_E",
+        "318":"vitamin_A",
+        "418":"vitamin_B12",
+        "415":"vitamin_B6",
+        "401":"vitamin_C",
+        "430":"vitamin_K",
+        "309":"zinc",
+    }
+    const nutrientsListLength = apiResponse.full_nutrients.length
+    let revritedResponse = {}
+
+    revritedResponse['name'] = apiResponse.food_name
+    revritedResponse['category'] = apiResponse.brand_name ? apiResponse.brand_name : ''
+    revritedResponse['weight'] = apiResponse.serving_weight_grams
+    
+   
+    
+    for (let i = 0; i < nutrientsListLength; i++) {
+        const nutrientCode = apiResponse.full_nutrients[i].attr_id
+
+        revritedResponse[nutrientsNames[nutrientCode]] = apiResponse.full_nutrients[i].value
+    }
+
+    return revritedResponse
+}
+
 router.post(
     '/getDataForAutocomplete',
     auth,
@@ -74,6 +135,7 @@ router.post(
             const products = await findProductsLike(userId, needle)
             const productLength = products.length
             const MAX_IN_AUTOCOMPLETE = 10
+            
             console.log('productLength',productLength)
             console.log('products',products)
             if(productLength >= 10){
@@ -153,6 +215,40 @@ router.post(
             res.status(500).json({message: 'Something is went wrong, try again'})
         }
     })
+
+router.post(
+    '/getDetailedInfoAboutProductFromApi',
+    auth,
+    async (req, res) =>{        
+        try {
+            // console.log(req.body)
+            // try to find a product in db
+            const userId = mongoose.Types.ObjectId(req.user.userId)
+            const needle = req.body.needle.trim()
+            const productType = req.body.prodType.trim()
+            let apiResponse = null;
+            let result = {
+                response:{}
+            }
+
+            console.log('needle', req.body.needle);
+            console.log('productType', productType);
+            // const apiResponse = await nutrixRequest(needle, 'GET', 'getList')
+            if(productType == 'common'){
+                apiResponse = await nutrixRequest(needle, 'POST', 'getProductProperties')
+            }else{
+                apiResponse = await nutrixRequest(needle, 'GET', 'getBrandedProductProperties')
+            }
+
+            result['response'] = rewriteApiDetailsResponse(apiResponse.foods[0])
+            return res.json(result)
+        } catch (error) {
+            console.log(error)
+            
+            res.status(500).json({message: 'Something is went wrong, try again'})
+        }
+    }
+)
 
 // Return all results from API and DB. Call when user submits the form
 router.post(
